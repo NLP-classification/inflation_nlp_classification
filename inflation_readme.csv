@@ -1068,6 +1068,18 @@ It supports the following countries :
 - [Google Play](https://play.google.com/store/apps/details?id=fr.corenting.convertisseureurofranc&utm_source=github_readme)
 - [Github releases](https://github.com/corenting/InflationCalculator/releases/latest)
 "
+16,forkkit/inflationchart,,"# Inflation Chart
+Inflation Chart is a project to find the intrinsic value of stock markets, stock prices, goods and services by adjusting them to the amount of the money supply (M0, M1, M2) or price of other goods (like the price of food or oil).
+
+# Site
+The site is accessible from https://inflationchart.com
+
+# Data
+The database is open and available from https://docs.google.com/spreadsheets/d/1xJGrHWj6uO6ykFPvht-RBG5qlLeO0axraxUJ9UzOhFo
+
+# Code
+All code of the project is open to and in this repo
+"
 17,future-tense/pool.futuretense.io,HTML,
 18,SOF3/include-flate,Rust,"# include-flate
 [!![CI](https://github.com/SOF3/include-flate/workflows/CI/badge.svg)](https://github.com/SOF3/include-flate/actions)
@@ -1927,6 +1939,8 @@ License
 
 Apache 2.0 License
 "
+29,16GMCN/MTH-9886-Emerging-Market-and-Inflation,,"# MTH-9886-Emerging-Market-and-Inflation
+"
 30,MosheLichman/ZIP-Regression,Python,"# ZIP-Regression
 My code for fixed-effect Zero-Inflated Poisson Regression model.
 
@@ -2443,6 +2457,98 @@ https://api.worldbank.org/v2/en/indicator/NY.GDP.MKTP.CD?downloadformat=excel
 ### Inflation
 https://www.worldbank.org/en/research/brief/inflation-database#:~:text=The%20World%20Bank%27s%20Prospects%20Group,consumer%20price%20index%20(CPI)%20inflation
 "
+42,OpenBB-finance/MacroDatabase,,"<p align=""center"">
+  <a href=""https://openbb.co/"">
+    <img src=""https://raw.githubusercontent.com/OpenBB-finance/OpenBBTerminal/main/images/openbb_splashscreen.png"" alt=""Logo"" width=""1000"">
+  </a>
+</p>
+<h3 align=""center"">Macro Database 🌎</h3>
+
+It's one thing to understand companies existing in countries, sectors and industries and another to understand 
+movements within these categories due to macroeconomics. The former is attempted to be solved with
+[FinanceDatabase](https://github.com/JerBouma/FinanceDatabase) and the MacroDatabase is an attempt to cover the latter. 
+
+Within this database of over 570.000 datasets, you are able to view an incredibly large amount of financial indicators 
+(e.g. GDP, employment rates, interest & inflation rates), prices (e.g. commodities, CPIs and housing indices), an 
+extensive variety of country data (e.g. government bond yields of the Netherlands, real consumption of households 
+in Japan) and so much more.
+
+| Category                                | Datasets                      |                 
+|:----------------------------------------|------------------------------:|
+| Prices                                  | 10,406                        |                       
+| U.S. Regional Data                      | 418,232                       |                                         
+| Money, Banking, & Finance               | 11,585                        |                                               
+| Production & Business Activity          | 3,777                         |                                              
+| Academic Data                           | 14,880                        |                    
+| National Accounts                       | 12,448                        |                                           
+| International Data                      | 95,706                        |                                                 
+| Population, Employment, & Labor Markets | 9,077                         |
+| **Total**                               | **576,111**                   |
+
+Find an overview of the largest categories within the database [here](/Database). The categorisation comes from 
+the [Federal Reserve Economic Data (FRED) database](https://fred.stlouisfed.org/) and this repository aims to 
+make sense of all the data within these categories.
+
+## Table of Contents
+
+1. [Using the Database](#using-the-database)
+3. [Questions & Answers](#questions--answers)
+4. [Contribution](#contribution)
+
+## Using the Database
+To access the database you can download the entire repository, but I strongly recommend making use of the package 
+closely attached to the database. It allows you to select specific json files as well as search through collected
+data with a specific query.
+
+### Installation
+You can install the package with the following steps:
+1. `pip install macrodatabase`
+2. (within Python) `import macrodatabase as md`
+
+### Functions
+The package has the following functions:
+
+- `show_country_options(search=None, category=None, parameter=None)` - gives curated country options. If no 
+parameter is provided, gives all options. If search is provided, searches with this query and if category or parameter 
+is provided, gives a specific selection.
+- `show_states_options(search=None, category=None, parameter=None)` - gives curated states options. If no 
+parameter is provided, gives all options. If search is provided, searches with this query and if category or parameter 
+is provided, gives a specific selection.
+- `show_database_options(search=None, include_discontinued=False)` - gives all options within the database given 
+a certain search term or all if no search term is provided.
+- `select_country_data(category, parameter, country=None, unit=None, period=None, seasonality=True)` - gives a certain 
+set of curated country data based on the parameters given. E.g. ""GDP"" and ""Liquid Liabilities to GDP"". You can also 
+specify the unit, period and seasonality to get specific types of data. If not provided, the function returns all 
+types.
+- `select_states_data(category, parameter, state=None, unit=None, period=None, seasonality=True)` - gives a certain 
+set of curated state data based on the parameters given. E.g. ""Real Estate"" and ""Housing Inventory: Average 
+Listing Price"". You can also specify the unit, period and seasonality to get specific types of data. If not provided, 
+the function returns all types.
+- `select_database_data(parameter)` - grab data from the whole database. This follows the structure that can be 
+obtained via `show_database_options`. E.g. to select Mortgage Rates you would use 'Interest Rates/Mortgage Rates'.
+- `collect_data(ids, api_key, show_progress=True)` - based on IDs, collect data via the 
+[FREDAPI](https://github.com/mortada/fredapi) package. This allows you to instantly collect all data for the 
+curated list. For example, all countries you can find within 'Liquid Liabilities to GDP' (150+).
+
+## Questions & Answers
+In this section you can find answers to commonly asked questions. In case the answer to your question is not here, 
+consider creating an [Issue](https://github.com/OpenBB-finance/MacroDatabase/issues).
+
+- **How did you get your data?**
+    - Please check the [Methodology](https://github.com/OpenBB-finance/MacroDatabase/tree/master/Methodology).
+- **Which countries and states are supported?**
+    - Please see [Countries](https://github.com/OpenBB-finance/MacroDatabase/tree/master/Structure/countries.json) and
+    [States](https://github.com/OpenBB-finance/MacroDatabase/tree/master/Structure/states.json).
+- **How can I find out which options exists?**
+    - For this you can use the ``show_country_options`` function for the Curated Countries, ``show_state_options`` 
+    for the Curated States and ``show_database_options`` function for general database querying.
+- **How frequently does the Database get updated?**
+    - Every sunday this database gets refreshed via GitHub Actions.
+    See [Methodology](https://github.com/OpenBB-finance/MacroDatabase/tree/master/Methodology) for how this is done.
+
+## Contribution
+Projects are bound to have (small) errors and can always be improved. Therefore, we highly encourage you to submit 
+issues and create pull requests to improve the package."
 43,rjrosati/Inflation.jl,Julia,"# Inflation.jl
 
 [![Build Status](https://travis-ci.com/rjrosati/Inflation.jl.svg?token=zMDX3GmCZbdBcf9JWMdp&branch=master)](https://travis-ci.com/rjrosati/Inflation.jl)
@@ -2664,6 +2770,60 @@ using(var context = DecompressContext.CreateWithStreamDictionary(dit))
 
 * test plugins android/ios/linux.
 
+"
+50,pascalmichaillat/intermediate-macro,,"# Intermediate Macroeconomics
+
+This repository contains material for a one-semester course in intermediate macroeconomics.
+
+## Instructor
+
+The course material was developed by [Pascal Michaillat](https://www.pascalmichaillat.org/) for ECON 1210 at [Brown University](https://www.brown.edu).
+
+## Course Webpage
+
+The course is hosted at https://www.pascalmichaillat.org/t2.html.
+
+## Course overview
+
+The course explores core topics in macroeconomics, including national statistics, consumption and saving, unemployment, inflation, business cycles, monetary and fiscal policy, economic growth, and population dynamics. The course starts by presenting short-run and long-run economic fluctuations in the United States and abroad. It then introduces models describing such fluctuations: 
+
++ IS-LM model of business cycles
++ Matching model of unemployment
++ Models of inflation
++ Malthusian model of preindustrial growth
++ Solowian model of modern growth
+
+## Course material
+
+The repository contains all the material for the course.
+
++ `lectures` folder: 30 slide decks for 30 one-hour lectures
++ `references` folder: 3 journal articles describing the basic matching model and basic Malthusian model presented in lectures
++ `homework` folder: 
+	* 8 problem sets, with their solutions
+	* 100 multiple-choice questions, with their solutions
++ `exams` folder: 
+	* 2 midterm exams, each with a practice version and solutions
+	* 1 final exam, with a practice version and solutions
+
+## Course organization
+
+The course is organized in 6 modules.
+
+1. Macroeconomic concepts: lectures 0–6; problem set 1
+2. IS-LM model of business cycles: lectures 7–13; problem sets 2–4
+3. Matching model of unemployment: lectures 14–20; problem sets 5–6
+4. Models of inflation: lecture 21
+5. Malthusian model of growth: lectures 22–24; problem set 7
+6. Solowian model of growth: lectures 25–29; problem set 8
+
+## Useful resources
+
+No textbook is required for this course, but [Macroeconomics](https://www.pearson.com/us/higher-education/program/Blanchard-Macroeconomics-7th-Edition/PGM333935.html) by Olivier Blanchard nicely complements several parts of the course.
+
+## License
+
+The content of this repository is licensed under the terms of the Creative Commons Attribution 4.0 International License ([CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)).
 "
 51,pesobitph/pesobit-source,C++,README.md
 52,BenjiKCF/Hong-Kong-Big-Data-Downloader-,HTML,"# Hong Kong Big Data Downloader 
@@ -3413,6 +3573,7 @@ Cryptocurrencies derive their value only from being an efficient transaction mec
 if they appear to become overvalued (causing excessive mining), other cryptocurrencies will arise.
 This will increase the total number of cryptocoins (between all cryptocurrencies),
 which will drive down the price, and limit excessive mining."
+67,motherjones/inflation-calculator,,
 68,helpimalive/inflation_cr_expansion,PostScript,"# This is a repository for the Inflation and CR Expansion research
 
 # Notes on Usage
@@ -3556,6 +3717,8 @@ If anyone has an easy fix, feel free to message or submit a pull request.
 
 The music is Hybrid Song from TeleportProkg.
 "
+71,tonybutt/cosmic-inflation,,"# inflation
+"
 72,apontzen/inflation,JavaScript,
 73,Ko4ka-Beershire-Co/Inflation-project,Python,"# The Website:
 
@@ -3655,6 +3818,10 @@ Code was written in MATLAB and relies of some functions in the MATLAB Statistics
 75,rioclaro/inflation,R,"# inflation
 Vamos estudar a série histórica do IPCA e montar modelos de previsão
 "
+76,fairmat/InflationModels,,"InflationModels
+===============
+
+Plugins Implementing Inflation Models"
 77,BenCasselman/inflation,R,"# inflation
 This repo contains data and code for working with data from the Consumer Price Index, including relative-importance values for all months back to Dec. 2016, and the code used to calculate it.
 There are three files here:
@@ -3662,6 +3829,14 @@ There are three files here:
 - `cpi_weights.R` contains the code to calculate and extract those weights.
 - `cpi_functions.R` contains miscellaneous functions for working with the CPI data. These are really for my own use, and the code is unannotated, so probably won't be of general interest."
 78,NumCosmo/NumCosmo,C,README.md
+79,fenixnake/inflation,,"# inflation
+# 撸钱钱原理图
+
+![](https://raw.githubusercontent.com/fenixnake/inflation/master/inflation.png)
+
+### 资本主义货币之诡谲循环来源于定义的叠加变换和""交易工具""的'单纯视角'的幻象。  
+e.g. RMB35年通胀约900倍。  
+"
 80,arno-id/inflation-calc,JavaScript," # inflation-calc
 fun project with weighted inflation
 
@@ -5140,6 +5315,53 @@ Take an array buffer considered as a byte stream, and return the
 string representation of the buffer.  This works only on latin 1
 character encodings (no UTF8).
 "
+102,gunthercox/NoCoin,,"# No Coin
+
+No Coin is the most secure, inflation-proof crypto currency. Risk nothing by having no coins.
+
+## What is No Coin?
+
+No Coin is an experimental digital currency. It has no central authority and no peers are required for it's non-existent network.
+
+## How fast is No Coin?
+
+No Coin is instantaneously fast. It's also 100% reliable.
+Recipients of No Coin will have the full value of the transfer immediately.
+
+## What are the transfer fees?
+
+No Coin has no transfer fees because it has no value.
+
+## How to mine
+
+Here is an example you can run on just about any system.
+
+Start with the following command:
+
+```
+
+```
+
+You should observe no coins being produced.
+
+## Wallets
+
+There isn't any. You don't need one.
+
+## Spec
+
+The spec for No Coin is as follows.
+
+```
+
+```
+
+Isn't it elegant?
+
+## Contributing
+
+You don't.
+"
 103,elSomewhere/Time-Series-ML,Python,
 104,whitfin/dot-notes-java,Java,"# dot-notes-java
 
@@ -5822,6 +6044,21 @@ To run these Jupyter notebooks you need to have CAMB and the CAMB python package
 Feel free to use and modify these codes for your own forecasts. If you do, please cite astro-ph/1612.05138 as well as the CAMB paper (astro-ph/9911177).
 
 "
+125,MafiaMelon/inflation,,"# inflation
+knowing the price increase and decrease over the years
+
+Inflation, the price increase of goods and services throughout the years.
+How to calculate? 
+
+Base year price ___ * Base year # ___ = Base your expenditure(BYE) ___ 
+
+Current year price ___ * Current year # ___ = Current year expenditure(CYE) ___
+
+Current year expenditure(CYE) - Base year expenditure(BYE) = Difference 
+
+Difference/BYE * 100 = Inflation %
+"
+126,Aysan97/Inflation,,# Inflation
 127,adilet000809/Inflation,Kotlin,
 128,Vasilis295/inflation,Jupyter Notebook,"# inflation
 Regression of cpi on profit margins and oil prices
@@ -5829,6 +6066,7 @@ Data from FRED for the US economy. As inflation is always and even more now a ho
 Results show a good fit fot the linear regression and this is in a way what we expected.
 In next projects we will examine things even more deeply.
 "
+129,AAKatsko/Inflation,,
 130,aerler101-1/InflationData,Python,"# InflationData
  Predict USA Inflation based on Deep learning models.
  This an example of a DNN study on the change of inflation in the United States. This was a collaborative effort. My primary role was in feature selction and reduction.
@@ -5881,6 +6119,7 @@ The application is hosted on https://www.shinyapps.io/ and can be accessed from 
 140,latentflip/Inflation,JavaScript,
 141,malev/inflation,Ruby,
 142,Robo-Brain/inflation,JavaScript,
+143,jy2915/Inflation,,
 144,gyasis/Inflation,HTML,
 145,lawli3t/inflation,HTML,
 146,mattschagas/inflation,HTML,# inflation
@@ -6022,6 +6261,7 @@ This simulator be predict inflation with a list parameters country.
 161,erikdean/inflation,HTML,"# inflation
 Work on pandemic inflation, &amp;c. for paper.
 "
+162,stat-hub/Inflation,,
 163,Dougisnotavailable/inflation,Python,
 164,mokhin-denis/InflationCalc,FreeBasic,"# InflationCalc #
 Расчет инфляции за период в виде функции VBA для использования в формулах Microsoft Excel.
@@ -6199,6 +6439,7 @@ What do we need in a simple finance tracker app?
 ![Screenshot (188)](https://user-images.githubusercontent.com/84917432/181174867-422d9d1f-fcaa-4838-8d29-f0be2a2b54c1.png)
 "
 171,esthermead/inflationRate,Jupyter Notebook,# inflationRate
+172,derek-l-thomas/InflationAdjuster,,
 173,stevetointon/InflationCalc,Swift,"# InflationCalc
 
 Created iOS application throught Xcode using Swift to calculate previous dollar amount in todays terms. 
@@ -6379,6 +6620,7 @@ This link was made so that others would be able to learn how to reproduce the pl
 recent concerns of inflation are valid. 
 Thank you for coming! 
 "
+196,NevenaDarijevic/InflationCalculator,,# InflationCalculator
 197,Asuki/InflationCalculatior,Java,
 198,vasarm/InflationPy,Jupyter Notebook,"
 # InflationPy
@@ -6414,6 +6656,9 @@ Install the InflationPy package:
 pip install inflationpy
 ```
 "
+199,bklifek/inflationhr95,,"# inflationhr95
+what teams are tackling inflation
+"
 200,PedroBDBaptista/InflationDSystem,Mathematica,
 201,revmitcz/inflation,JavaScript,"inflation
 =========
@@ -6422,8 +6667,16 @@ This is a simple lookup service to determine the inflation-adjusted value of mon
 
 This fork is in use at [intodaysdollars.com](http://www.intodaysdollars.com).
 "
+202,titilas/inflation,,"# inflation
+R Code to download Colombia CPI from DANE, process data, calculate main CPI indicators, and make some plots.
+"
+203,richftw/inflation,,
 204,emgun/Inflation,Jupyter Notebook,"# Inflation
 Numerical analysis of the slow roll approximation of inflation
+"
+205,economics-databases/Inflation,,
+206,jwalsh160/Inflation,,"# Inflation
+exploration of CPI data
 "
 207,Kevin-Pember/InflationCompair,JavaScript,"# InflationCompair
 A javascipt thing (not really a web app) that compairs ETFs that say that they are secured against inflation
@@ -6495,6 +6748,7 @@ Android:
 [![Build status](https://build.appcenter.ms/v0.1/apps/7b84a7d0-8830-4881-884e-028ef50522e1/branches/dev/badge)](https://appcenter.ms)
 "
 214,johnpm-12/inflationdeflationerc20,JavaScript,
+215,abdulla401/InflationCalc,,# InflationCalc
 216,williams-enabulele/InflationCalc,Java,
 217,tomsaunders98/InflationCalc,CSS,
 218,adamoxford/InflationData,R,"# InflationData
@@ -6550,6 +6804,10 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 "
+225,fatemehosseininsb/inflation,,
+226,levyhot/Inflation,,"# Inflation
+
+## TEST"
 227,ashernoel/inflation,Jupyter Notebook,"# inflation
 Using Google and Twitter to Inform CPI
 "
@@ -6559,6 +6817,9 @@ Shiny app para análise da inflação
 229,MichaelPRivera/InflationProject,HTML,# InflationProject
 230,dcenteno99/InflationLimit,MATLAB,
 231,mishadovhiy/inflationApp,Swift,
+232,heythisispaul/inflationBot,,"# inflationBot
+A RedditBot that will give you the value of money adjusted for inflation
+"
 233,SepehrBorji/InflationCalculator,Python,"# InflationCalculator
 Using a (very) rough estimate approach, this program will calculate the inflation rate in Canada and convert to CAD of a certain year
 
@@ -6651,6 +6912,7 @@ payload <- list(
     'endyear'=2012,
     'registrationKey'=get_key('blsAPI'))
 ```"
+239,maalokweng/inflation,,
 240,AlexanderIbrahim1/Inflation,Julia,"# Inflation
 
 ## Homework 4 for PHYS 776
@@ -6730,6 +6992,19 @@ I chose to solve the second question. This problem can be run from `src/problem4
 - [2] https://github.com/PerimeterInstitute/Computational-Physics-Course-Winter-2020/blob/master/class-2020-03-11/CausalInferencePaper.pdf
 "
 241,frankij11/inflation,R,# inflation
+242,alva922/Inflation,,"# Inflation
+Inflation-Resistant Stocks to Buy
+AAPL Inflation Resistance Example
+Download 3 historical datasets - stock price and monthly/annual CPI 
+Compute the monthly/annual stock performance (%) and CPI rate (%) 
+Apply linear regression to the stock vs CPI performance cross-plot
+Check the slope or gradient of the linear trend - positive, negative or zero.
+Read more:
+https://wp.me/pdMwZd-xC
+"
+243,EconMike/InflationProducerPrice,,"# InflationProducerPrice
+Line plot showing the 12 month percent change trend in the producer price indexes within the final demand category
+"
 244,dmastylo/Inflation,Ruby,"# Inflation
 
 This simple gem makes it easy to calculate how much different amounts of money
@@ -6918,6 +7193,7 @@ An exploration of inflation.
 | The Quantity Theory of Money Insanity (Part 2) | [Part2.ipynb](qtm/QTM-Part2.ipynb) |
 | The Quantity Theory of Money Insanity (Part 3) | [Part3.ipynb](qtm/QTM-Part3.ipynb) |
 "
+262,anna-willmann/Inflation,,
 263,P4tt4te/inflation,JavaScript,
 264,jjarrin96/inflation,Python,# inflation
 265,rlouf/inflation,Python,
@@ -6980,6 +7256,37 @@ App written with [Flutter](https://flutter.dev).
 A simple web page scraper that parses information from https://www.inflation.eu/
 
 The results are outputed in the ""results.json"" file."
+270,timxiao1203/inflationBondCurve,,"# Inflation linked Bond Curve Introduction
+
+Inflation indexed bonds, also called inflation linked bonds or real return bonds, are bonds where the principal is indexed to inflation or deflation on a daily basis in terms of a reference index, such as Consumer Price Index (CPI). The primary purpose of these bonds is the transfer of inflation risk.
+
+An inflation indexed bond is designed to hedge the inflation risk of the bond. Inflation bonds are an important vehicle for investors hose liabilities indexed to changes in inflation or wages. They have favorable performance and lower volatility relative to other risk assets. It is favorable to retirement planning and pension funds given its inflation protection. Inflation indexed bonds are less liquid than regular bonds.
+
+Inflation linked bonds are mainly issued by government. There is also a small portion of inflation-linked bonds are issued by commercial financial institutions, that are usually treated as government-issued inflation-linked bonds.
+
+Breakeven inflation rates can be found by comparing the zero-yields on inflation-linked and nominal bonds with the same maturity. However, the breakeven yields found this may be affected by the liquidity premium embedded in the bond.
+
+
+Inflation Linked Bond Curve Data Sample
+
+Inflation linked bond curve is the term structures of the most liquidy inflation bond prices at different maturities. An inflation bond curve same data is shown below:
+
+Currency	Instrument	ValuationDate	Tenor	Price	Yield
+GBP	IR.Bond.GBP.GB00B85SF..	2020-11-27	5Y	110.5865	-0.029
+GBP	IR.Bond.GBP.GB00B3Y1J..	2020-11-27	10Y	128.673	-0.02901
+GBP	IR.Bond.GBP.GB00B46CG..	2020-11-27	15Y	155.7985	-0.02705
+GBP	IR.Bond.GBP.GB00B3LZB…	2020-11-27	20Y	176.4815	-0.02449
+GBP	IR.Bond.GBP.GB00BZ13D…	2020-11-27	30Y	192.1495	-0.02253
+GBP	IR.Bond.GBP.GB00BDX8C…	2020-11-27	50Y	295.1915	-0.02199
+
+
+References:
+
+https://finpricing.com/lib/EqRangeAccrual.html
+
+https://bitbucket.org/cmrm11/inflationbondcurve/downloads/IrInflationBondCurve-10.pdf
+
+"
 271,HackerIndustrial-web3/real-yields-InflationBonds,Solidity,"# real-yields-InflationBonds
 Hackathon project utilizing truflation chainlink  oracle for creating digital bonds which pay a real yield adjusted for inflation
 "
@@ -7177,6 +7484,92 @@ How to deploy The Early Warning System Inflation
 5. Check the web is running by execute
    pm2 status
 6. Access the web on http://IP:33333
+"
+285,emma-jinger/InflationAndSP500,,"# Inflation and S&P 500 Index
+## Introduction
+This project showcases my attempt to follow the steps of the data analysis process: **ask, prepare, process, analyze, share**, and **act** for my own analysis. 
+It aims to educate myself and any stock market novices in investing in funds that mimic S&P 500 index.
+## Datasets Used
+- S&P 500 index historical monthly data from https://www.investing.com/indices/us-spx-500-historical-data
+- Consumer Price Index (CPI) from [U.S. Bureau of Labor Statistics](https://data.bls.gov/cgi-bin/surveymost?cu) 
+## Ask 
+#### Identify the business task (Two Questions to answer): 
+- Is there any correlation between inflation and the S&P 500 index? 
+- What does a 10-year return on S&P 500 index fund investment look like?
+#### Shareholders 
+Beginner investors who seek to invest in funds that mimic S&P 500 Index such as Vanguard 500 ETF (VOO) for a long term.
+#### Metrics
+Ten year return in investing in S&P 500 index.
+## Prepare 
+### [S&P 500 index dataset](https://github.com/emma-jinger/InflationAndSP500/blob/main/RawSP500HistoricalData.csv) 
+- It was retrieved on May 9, 2022.
+- It contains monthly S&P 500 index data between Jan 1990 and May 2022.
+- It is used to calcualte 10-year returns investing in funds that mimic S&P 500 index. 
+- Disclaimer: Thre returns calculated from this project are only used for references, since dividends, investment management fee and such are not considered during the calculation.
+### [CPI dataset](https://github.com/emma-jinger/InflationAndSP500/blob/main/RawCPIData.xlsx) 
+- It was retrieved on May 9, 2022. 
+- It contains monthly CPI-U (Consumer Price Index for All Urban Consumers) less food and energy data between Jan 1990 and Mar 2022.
+- It can be used to [calculate annual core inflation rates](https://www.usinflationcalculator.com/inflation/inflation-vs-consumer-price-index-cpi-how-they-are-different/). 
+- The [core inflation rate](https://www.thebalance.com/core-inflation-rate-3305918) excludes food and energy prices because they vary too much from month to month. This exclusion makes the core rate more accurate in measuring underlying inflation trends. 
+- Disclaimer: The inflation rates calculated in this project might have some discrepencies with that done by the Federal Reserve.    
+## Process
+This step is done in Google Sheet. 
+### Rationale for using Google Sheet
+I chose to process the datasets in Google Sheet because the datasets are fairly small, with 389 records in S&P 500 dataset and 33 records in CPI dataset. Besides, using spreadsheet functions and menu tools to do the initial cleaning like removing duplicate data, checking for incorrectly entered data, and formatting data for consistency is very straightforward.
+### What did I do to process the S&P 500 dataset?
+1. Checked that there was no duplicate data. 
+2. Formatted the column that contains month and year data to the DATE data type.
+3. Checked there was no missing month or year.
+4. Checked the min and max of each column to make sure there was no incorrectly entered data. 
+5. Formatted numbers like 4,123.34 to 4123.34, and percent like -0.21% to -0.21.
+6. Added Id column for later use (primary key in PostgreSQL).
+7. Sorted date column from old to new. 
+### What did I do to process the CPI-U data? 
+1. Deleted the description part of the dataset.
+2. Checked that there was no duplicate data.
+3. Checked that there was no missing year. 
+### The cleaned datasets after this step
+- [Cleaned S&P 500 data](https://github.com/emma-jinger/InflationAndSP500/blob/main/CleanedSP500HistoricalData.csv)
+- [Cleaned CPI data](https://github.com/emma-jinger/InflationAndSP500/blob/main/CleanedCPIData.csv)
+## Analyze
+This step is done in PostgreSQL. 
+### Rationale for anaylzing the data using PostgreSQL. 
+I chose to use a SQL database because of its fast and powerful functionality. Simply write down all I want to do with the data in a query, I will get the transformed data in merely several seconds. The queries also enables traceability of my analysis. 
+### What did I do to analyze the cleaned data? 
+- **[S&P 500 and Inflation Query](https://github.com/emma-jinger/InflationAndSP500/blob/main/SP500AndInflation_query.sql)** 
+  1. Calculated the annual inflation rate
+  2. Transformed CPI table to resemble the organization of the cleaned S&P 500 table
+  3. Created a new table [SP500AndInflation](https://github.com/emma-jinger/InflationAndSP500/blob/main/SP500AndInflation052522.csv) by joining with the S&P 500 table
+- **[S&P 500 10 Year Return and Inflation-adjusted Return Query](https://github.com/emma-jinger/InflationAndSP500/blob/main/SP500Return_query.sql)** 
+  - Created a new table [SP500TenYearReturn&Adjusted](https://github.com/emma-jinger/InflationAndSP500/blob/main/SP500TenYearReturn%26Adjusted052422.csv) that contains 10 year returns and adjusted 10 year returns on S&P 500 
+## Share
+The visualizations were created using [Tableau Public](https://public.tableau.com/app/profile/emma.li2382/viz/SP500VsInflation_052422/InflationVsSP500) and the slides were created in Gooogle Slides. 
+
+An accompanying slides are [here](https://www.thebalance.com/best-time-to-invest-in-index-funds-2466412) to share my analysis. 
+### A scatter plot 
+The following plot is used to show any correlation between inflation rate and S&P 500 index. 
+![scatterplot](https://github.com/emma-jinger/InflationAndSP500/blob/main/InflationVsSP500_052022.png)
+By examining the above plot, we see no obvious correlation between the inflation rate and S&P 500 index. This is further confirmed by looking at the [correlation coefficient](https://www.investopedia.com/terms/c/correlationcoefficient.asp) ([see how -0.04 is calculated](https://github.com/emma-jinger/InflationAndSP500/blob/main/Correlation%20Coefficient%20.png)). Values of correlation coefficient near 0 indicate a very weak linear relationship.
+### Two stacked bar charts  
+*The following chart is used to compare the 10 year rolling returns if one invests $10K in S&P 500 index starting from different months and years. The cutoff month and year is May 2012. This is because May 2012 is the latest starting investment date for which we are able to calculate the 10-year return based on historical S&P 500 index data.*  
+![10-year return](https://github.com/emma-jinger/InflationAndSP500/blob/main/SP500TenYearReturn.png) 
+- With $10K investment in S&P 500 index, the highest 10-year rolling return is $37,051, whereas the lowest is -$4,064.
+- The possibility of increasing your money within 10 years is 89.59%. 
+#### What would a [inflation-adjusted](https://www.investopedia.com/terms/i/inflation_adjusted_return.asp#:~:text=The%20inflation%2Dadjusted%20return%20is,removing%20the%20effects%20of%20inflation.) 10 year rolling return look like? 
+> Removing the effects of inflation from the return of an investment allows the investor to see the **true earning potential** of the security without external economic forces. 
+
+*The cutoff month and year is Mar 2012. This is because Mar 2012 lastest date for which we are able to calculate the inflation-adjusted 10-year return (CPI index for Mar 2022 is the latest data we have).*
+![10-year adjusted return](https://github.com/emma-jinger/InflationAndSP500/blob/main/SP500AdjustedTenYearReturn.png) 
+- The highest adjusted 10-year rolling return is adjusted to $27,778, whereas the lowest is adjusted to -$3,292. 
+- The possibility of increasing your money within 10 years is still 89.59%.
+## Act
+### Conclusion
+- Inflation rate cannot be used as a reference for one to decide when to invest in funds that mimic S&P 500 index, as no obvious correlation between them is found. 
+- The likelihood of one growing their money by investing in funds that mimic S&P 500 index is quite high (89.59%). It could be considered as a fairly safe investment option.  
+- Further analysis can be done to see if there is a better strategy on investing in funds that mimic S&P 500 index. Questions like ""Would a longer term like 15 or 20 years make it safer?"" or ""Does strategy like [Dollar-Cost Averaging](https://www.investopedia.com/terms/d/dollarcostaveraging.asp#:~:text=Dollar%2Dcost%20averaging%20(DCA)%20is%20an%20investment%20strategy%20in,price%20and%20at%20regular%20intervals.) make it safer?"" are worth exploring.  
+
+
+
 "
 286,hgeorge21/JSC370-inflationAnalysis,R,"# JSC370 Final Project -- Analysis on Inflation
 
@@ -7502,6 +7895,9 @@ inflatR_demo.mov"
 302,shehio/FED-Interest-Rate,Jupyter Notebook,"# FED-Interest-Rate
 Prediction of the FED interest rate using features like unemployment and inflation.
 "
+303,pjreij98/InflationGroceryAppNotWorking,,"# InflationGroceryApp
+App for checking the price of grocery items on a certain day in the past vs today.
+"
 304,joshuahoffmanr91/Inflation-,Shell,
 305,bloopton/InflationEconomics-Research-ColumbiaU,Shell,"# EconResColumbia
 
@@ -7758,6 +8154,9 @@ for more information, visit https://sites.google.com/site/codecosmo/bingo
 
 This version is: Version 2.0: October 2014
 "
+308,amman08/Venezuela-Crisis,,"# Venezuela-Crisis
+Venezuela  Crisis  and how it leads Inflation to Hyper-Inflation
+"
 309,crimsoncantab/inflationrpg,Python,"inflationrpg
 ============
 
@@ -7950,6 +8349,11 @@ inflation cpi model
 319,ufukreis/Inflation-Calculator-Application-C-Language,C,"# Inflation Calculator Application C Language
  Inflation Calculator Application 
 "
+320,rjbs/class-dbi-hasvariant,,"README for Class-DBI-Relationship-HasVariant
+
+This distribution provides a new relationship type for Class::DBI, which
+functions as has_a with different classes for different rows.
+"
 321,Refinitiv-API-Samples/Article.EikonAPI.Python.InflationVsDCAFund,Jupyter Notebook,"# Inflation Versus DCA Investing in a Fund
 
 This Jupyter Notebook accompanies the article titled [""Inflation versus Dollar Cost Averaging on Pension Fund""](https://developers.refinitiv.com/en/article-catalog/article/inflation-versus-dollar-cost-averaging-pension-fund-refinitiv) on Refinitiv Developer Portal.
@@ -8019,6 +8423,321 @@ Here are some ideas to get you started:
 -->
 "
 326,sjohns21/investigating_fandango_ratings,Jupyter Notebook,
+327,cleancoindev/fair-inflation-v2,,"# A more sustainable economic model for DFO-based Startups to maintain value and funds operations
+
+AleToschi.eth | Vasapower.eth | CD
+
+White Paper: https://docs.google.com/document/d/1-foU-XTlXS0WgH97IOVC1i-O_WsKeqc-FVL5x9RR7WY/edit?usp=sharing
+
+## Document Purpose:
+
+This document is an update of “A sustainable economic model for DFO-based Startups to maintain value and funds operations” https://drive.google.com/file/d/1_QZr5CjNsQKGxoJ5WkI9iPJGs4PdKWol/ We successfully renamed this mechanism “Fair Inflation V1” (FI V1). During the experimentation of the Fair Inflation V1, the DFOhub Team Researched and Developed a better and more resilient version of the “Fair Inflation V1” called “Fair Inflation V2” (FI V2).
+
+
+
+## Fair Inflation V1 - White Paper
+
+### FI V1 - Abstract:
+
+Voting Tokens of Decentralized Flexible Organizations are real programmable equities of a protocol because the funds locked into a DFO wallet are actually funds in the hand of token holders. DFO funds can be transferred or used only by voting, this opens new and very interesting correlations between Private Equity and Tokens.
+
+The core experiment of this paper is to explore how adding new on-chain valuable assets into a DFO wallet can sustain the price of its voting tokens. 
+
+In a traditional company, if new assets are added to the Company funds (without any increase of debts) the evaluation of its equities is backed by the value of these assets. This is because equities holders have the power to manage these assets.
+
+This basic rule can be applied to Decentralized Flexible Organizations because if funds are added to a DFO wallet, Token Holders are the only ruler of these funds.
+This is a basic design decision of The DFO core protocol, because thanks to its Smart contracts, nobody can make actions outside of a public proposal voted by token holders.
+
+### FI V1 - The experiment:
+
+
+ Thanks to the Uniswap math design:
+
+
+x * y = k.  **
+
+
+**Explained by Decrypt.co
+In the equation, x and y represent the quantity of ETH and ERC20 tokens available in a liquidity pool and k is a constant value. This equation uses the balance between the ETH and ERC20 tokens–and supply and demand–to determine the price of a particular token. Whenever someone buys Poop Token with ETH, the supply of Poop Token decreases while the supply of ETH increases–the price of Poop Token goes up. As a result, the price of tokens on Uniswap can only change if trades occur. Essentially what Uniswap is doing it balancing out the value of tokens, and the swapping of them based on how much people want to buy and sell them.
+
+
+A Flexible Organization can sustain its operation by a fixed Circulated Supply inflation using the uniswap protocol, by adding new values into the DFO Wallet:
+
+### FI V1 - Example:
+
+
+A DFO named “Flexible” with a Voting Token named “FLX”
+
+FLX Total Supply = 1.000.000 FLX
+Flexible DFO Wallet = 800.000 FLX (80%)
+FLX Circulating Supply = 200.000 FLX (20%)
+
+With a Smart Contract based proposal, Flexible Token holders decide to step by step inflate the circulating supply for a total of 5% during a period of a year and a half by selling a fixed number of FLX once a week (~ 50.400 Ethereum Blocks @ 12 sec for a block for 80 times)
+
+In this case, the Flexible DFO will sell in total 50.000 FLX on the Uniswap protocol at the ratio of 625 FLX every 50.400 Blocks, increasing the circulating supply by the 0,0625%
+
+
+(In this experiment technically the FLX backed value is already settled by the 800.000 FLX into the Flexible DFO Wallet, but because the FLX is at the same time the Voting Token, we don’t count its value in this equation.)
+
+Every FLX Inflation event will add new ETH to the Flexible DFO wallet, adding new backed assets.
+
+For example, after the first selling event the new status of the Flexible DFO Wallet will be:
+
+
+799375 FLX +  Z ETH ***
+
+
+***(Z is equal to an amount of ETH depending on the ratio of ETH/FLX into the Uniswap Pool)
+
+Now Z ETH is the minimum backed value of the Flexible DFO Wallet and consequently the FLX Market cap because FLX Token Holders are the only people who can manage these funds, like Equity Holders in a Company.
+
+Every Selling Event the Uniswap Pool reaches very little inflation but at the same time this selling benefits every FLX Holders.
+
+If the DFO Voting Token Holders will use every week an amount < of the 100% of the Z ETH funds reached, the project can pay operations and at the same time accumulate backed value to benefit every token holder.
+
+### FI V1 - The DFOhub Experiment:
+
+We want to do this experiment for three fundamental reasons:
+
+Empiric data about the correlation from Programmable Equities (DFO based Voting Tokens) to Regular Equities that can open an infinite number of questions and business opportunities for the dapps of tomorrow (DFO based)
+R&D and introduce these standardized Smart Contracts as optional basic functions for every DFO via voting
+Sustain our operations and at the same time to build a minimum backed valorization for BUIDL holders.
+
+The Economics behind BUIDL is based on the Business Model of the General Purpose Protocol DFO. Every time someone creates  a new Decentralized Flexible Organization, a % of the new DFO’s new Voting Tokens is added to the DFOhub Wallet. The DFOhub Wallet is managed only by voting from the BUIDL holders, making assets into the DFOhub wallet the backed value of BUIDL.
+
+### FI V1 - DFOhub Experiment in numbers:
+
+BUIDL Total Supply = 42.000.000 BUIDL
+DFOhub DFO Wallet = 11.500.000 BUIDL (27.3%)
+DFOhub Team Operations Wallet = 11.500.000 BUIDL (27.3%)
+BUIDL Circulating Supply = 2.200.000 BUIDL (5.2%)
+
+With a Smart Contract based proposal, DFOhub will step by step inflate the circulating supply of BUIDL for a total of 0.8% during a period of a year and a half by selling a fixed number of BUIDL once every two weeks (~ 100.800 Ethereum Blocks @ 12 sec for a block for 40 times)
+
+At the same time, the DFOhub Team Operations Wallet will step by step inflate the circulating supply of BUIDL for a total of 0.8% during a period of a year and a half by selling a fixed number of BUIDL once every two weeks (~ 100.800 Ethereum Blocks @ 12 sec for a block for 40 times)
+
+These two Smart Contracts will inflate the circulation supply of a total of 1.6% (672.000 BUIDL) in a year and a half. The funds will be inflated into 3 different Uniswap Pools:
+
+25% Uniswap V1 ETH/BUIDL | 0.4% (168.000 BUIDL)
+25% Uniswap V2 ETH/BUIDL | 0.4% (168.000 BUIDL)
+50% Uniswap V2 USDC/BUIDL | 0.8% Inflation (336.000 BUIDL)
+
+During every Selling Event, the Circulating supply of BUIDL will increase by 0.02% (8.400 BUIDL) and will be split into:
+
+25% Uniswap V1 ETH/BUIDL | 0.005% (2.100 BUIDL)
+25% Uniswap V2 ETH/BUIDL | 0.005% (2.100 BUIDL)
+50% Uniswap V2 USDC/BUIDL | 0.01% Inflation (4.200 BUIDL)
+
+## FI V1 - Conclusion:
+
+Every Two weeks these funds will create values for BUIDL holders in two different ways:
+
+From the DFOhub Wallet: Z ETH and Z USDC will be automatically added to the DFOhub wallet as a backed value for BUIDL holders.
+From the DFOhub Team Operations Wallet, these funds will be used to accelerate the R&D into new DFOhub Functionalities, Marketing, and Community Rewards. These Operations will benefit all of the BUIDL holders accelerating the advancement of the protocol and its usage, so more DFO's Voting Tokens into the DFOhub Wallet as a backed value for BUIDL holders.
+
+All of the functionalities related to this R&D will become available for every DFO as Optional Basic Functionalities, to accelerate the exploration of Programmable Equities R&D.
+
+# Fair Inflation V2 - White Paper Update:
+
+## FI V2 - Abstract:
+
+The “Fair Inflation V1” experiment was a success during the first month both in terms of equity between funds for operations and backed funds for BUIDL holders.
+
+You can check the three FI events here:
+
+https://etherscan.io/tx/0x68ef31cc8cff2929295fbd0b84187eb70b59bd1f8efb069f1bd9ed06fe817a15 (DFOhub)
+https://etherscan.io/tx/0xe31d9eab9527e2a0299b80efc86ee013a0915825aac103246eccfaeddb95d822 (Operation Funds)
+https://etherscan.io/tx/0xfdc2ab2be2ac2d46f37e520217f6b1ce10c4203ab5d56c512d743878d93f6872 (DFOhub)
+https://etherscan.io/tx/0xdbf65b725d1d37750f67f6a1801c3cd38121fe676a414576d8ef5c5a19079f46 (Operation Funds)
+
+The “Fair Inflation V1” experiment highlighted three unaddressed points of failure:
+
+Slippage: The Uniswap Slippage is selling 8.400 BUIDL at an untoward price. This can be a problem for DFO-based Startups with less liquidity than BUIDL
+Dump: The 8400 BUIDL selling created a short dump in the market. This system can be attacked by speculators if they sell BUIDL just before the Fair Inflation event. This kind of attack can harm both BUIDL holders and the team.
+
+## FI V2 - The Experiment:
+
+The “Fair Inflation V2” experiment aims to solve both the Slippage and the Dump problems by transforming weekly inflation events into daily inflation events without changing the quantity of Inflated tokens during the year and a half experiment.
+
+In the “Fair Inflation V1” Every Week the circulating supply of BUIDL is inflated by 8.400 BUIDL for a total of 672.000 BUIDL after 80 weekly events into 3 Uniswap Pools (25% in ETH/BUIDL V1, 25% in ETH/BUIDL V2 and 50% in USDC/BUIDL V2).
+
+In the “Fair Inflation V2” the same amount of BUIDL will be inflated in the same amount of time, but splitted into more inflation events and used to reward liquidity providers to Uniswap pools.
+
+## FI V2 - The DFOhub (BUIDL) Experiment:
+
+DFOhub (https://etherscan.io/tokenHoldings?a=0x5D40c724ba3e7Ffa6a91db223368977C522BdACD) will step by step inflate the circulating supply of BUIDL for a total of 336.000 during a period of a year and a half splitted in 560 daily Inflation Events (6.300 Ethereum Blocks)
+
+This Smart Contract will inflate the circulation supply of a total of 336.000 BUIDL in a year and a half. The funds will be both inflated into 3 different Uniswap Pools and lock them to reward liquidity pool providers :
+
+- 30% Uniswap V2 ETH/BUIDL (100.800 BUIDL)
+
+- 30% Uniswap V2 USDC/BUIDL (100.800 BUIDL)
+
+- 10% Uniswap V2 ARTE/BUIDL (33.600 BUIDL)
+
+- 30% Rewards for Liquidity Providers  (100.800 BUIDL)
+
+During every Selling Event, the Circulating supply of BUIDL will increase by 600 BUIDL and will be split into:
+
+- 30% Uniswap V2 ETH/BUIDL (180 BUIDL)
+
+- 30% Uniswap V2 USDC/BUIDL (180 BUIDL)
+
+- 10% Uniswap V2 ARTE/BUIDL (60 BUIDL)
+
+- 30% Rewards for Liquidity Providers  (180 BUIDL)
+
+At the same time, the DFOhub Team Operations Wallet (https://etherscan.io/tokenHoldings?a=0x25756f9C2cCeaCd787260b001F224159aB9fB97A) will step by step inflate the circulating supply of BUIDL for a total of 336.000 BUIDL during a period of a year and a half splitted in 560 daily Inflation Events (6.300 Ethereum Blocks)
+
+This Smart Contract will inflate the circulation supply of a total of 336.000 BUIDL in a year and a half. The funds will be both inflated into 3 different Uniswap Pools:
+
+- 50% Uniswap V2 ETH/BUIDL (168.000 BUIDL)
+
+- 50% Uniswap V2 USDC/BUIDL (168.000 BUIDL)
+
+During every Selling Event, the Circulating supply of BUIDL will increase by 600 BUIDL and will be split into:
+
+- 50% Uniswap V2 ETH/BUIDL (300 BUIDL)
+
+- 50% Uniswap V2 USDC/BUIDL (300 BUIDL)
+
+These two Smart Contracts will inflate the circulation supply of a total of 672.000 BUIDL in a year and a half. 
+
+The DFOhub FI and the Operation FI will occur at ~ 12 hours apart (3.150 Ethereum Blocks).
+
+## FI V2 - The Liquidity Staking Reward Experiment:
+
+Liquidity Providers will be rewarded by the fair inflation based on the duration of locked liquidity.
+The total amount of BUIDL available every 24 hours is 180 and automatically are splitted to reward liquidity providers based on locked BUIDL stacked as a liquidity for BUIDL/ETH and BUIDL/USDC in Uniswap V2.
+ 
+The Reward is based on 4 tier:
+ 
+- 1 Month: 10% daily (18 BUIDL) for a total of 540 BUIDL every month splitted from holders that lock liquidity for a month. The ratio is 1:0.01 BUIDL for every BUIDL stacked. The total amount of BUIDL stackable is 54.000.
+
+- 3 Months: 20% daily (36 BUIDL) for a total of 3.240 BUIDL every  three months splitted from holders that lock liquidity for three months. The ratio is 1:0.05 BUIDL for every BUIDL stacked. The total amount of BUIDL stackable is 60.480.
+
+- 6 Months: 30% daily (54 BUIDL) for a total of 9.720 BUIDL every  six months splitted from holders that lock liquidity for six months. The ratio is 1:0.2 BUIDL for every BUIDL stacked. The total amount of BUIDL stackable is 48.600.
+
+- 1 Year: 40% daily (72 BUIDL) for a total of 25.920 BUIDL every year splitted from holders that lock liquidity for one year. The ratio is 1:0.5 BUIDL for every BUIDL stacked. The total amount of BUIDL stackable is 51.840.
+
+Examples:
+
+- A BUIDL holder stake 5000 BUIDL for a month by adding to the Uniswap liquidity 5000 BUIDL and the equivalent of ETH in the BUIDL/ETH pool via the DFOhub Staking GUI. At the end of the month the holders will be able to withdraw its liquidity (at the current rate) + 50 BUIDL + the Uniswap trading fees earned.
+
+- A BUIDL holder stake 5000 BUIDL for three months by adding to the Uniswap liquidity 5000 BUIDL and the equivalent of ETH in the BUIDL/ETH pool via the DFOhub Staking GUI. At the end of the selected period the holder will be able to withdraw its liquidity (at the current rate) + 250 BUIDL + the Uniswap trading fees earned.
+
+- A BUIDL holder stake 5000 BUIDL for six months by adding to the Uniswap liquidity 5000 BUIDL and the equivalent of ETH in the BUIDL/ETH pool via the DFOhub Staking GUI. At the end of the selected period the holder will be able to withdraw its liquidity (at the current rate) + 1.000 BUIDL + the Uniswap trading fees earned.
+
+- A BUIDL holder stake 5000 BUIDL for one year by adding to the Uniswap liquidity 5000 BUIDL and the equivalent of ETH in the BUIDL/ETH pool via the DFOhub Staking GUI. At the end of the selected period the holder will be able to withdraw its liquidity (at the current rate) + 2.500 BUIDL + the Uniswap trading fees earned.
+
+During every Fair Inflation event, if the amount of FI token moved from the DFOhub wallet is more than the number of tokens used to reward stakers, the excess BUIDL will return to the DFOhub wallet.
+
+## FI V2 - The ethart (ARTE) Experiment:
+
+### Ethart Fair Inflation V1 
+(https://github.com/b-u-i-d-l/ethArt):
+A sustainable economic model for DFO-based startups to maintain value and fund operations | ethArt version
+For the $ARTE experiment, we will inflate the circulating supply by 1.21% (121,000) of the total supply (10,000,000) over one year..
+
+Inflation events will occur once a week (every 50,000 ETH Blocks) across two Uniswap pairs for a total of 2,200 $ARTE each time:
+
+- Uniswap V2 $ETH/$ARTE (1,100 $ARTE Every Week) 0.01% Weekly Inflation
+- Uniswap V2 $BUIDL/$ARTE (1,100 $ARTE Every Week) 0.01% Weekly Inflation
+
+For a total of 2,200 $ARTE every week (0.02%)
+### Ethart Fair Inflation V2:
+From the DFOhub Team Operations Wallet (https://etherscan.io/tokenHoldings?a=0x25756f9C2cCeaCd787260b001F224159aB9fB97A) 
+
+Inflation events will occur once a day (every 6,300 ETH Blocks) across two Uniswap pairs for a total of 314 $ARTE each time:
+
+- Uniswap V2 $ETH/$ARTE (157 $ARTE Every Day)
+
+- Uniswap V2 $BUIDL/$ARTE (157 $ARTE Every Day)
+
+For a total of 314 $ARTE every day
+
+All of the functionalities related to this R&D will become available for every DFO as Optional Basic Functionalities, to accelerate the exploration of Programmable Equities R&D.
+
+"
+328,clustersdata/Inflation-of-the-Parachute,,"# Inflation-of-the-Parachute
+Inflation of the Parachute
+A parachute is made from thin, lightweight fabric, support tapes and suspension lines. The lines are usually
+gathered through cloth loops or metal connector links at the ends of several strong straps called risers. The risers
+in turn are attached to the harness containing the load.
+Deployment systems
+Freefall deployed parachutes are pulled out of their containers by a smaller parachute called a pilot chute.
+A way of deploying a parachute directly after leaving the aircraft is the static line. One end of the static line is
+attached to the aircraft, and the other to the deployment system of the parachute container.
+Types of parachutes
+Round parachutes
+An American paratrooper using an MC1-1C series 'round' parachute
+Round parachutes, which are pure drag devices (i.e., they provide no lift like the ram-air types), are used in
+military, emergency and cargo applications. These have large dome-shaped canopies made from a single layer
+of cloth. Some skydivers call them ""jellyfish 'chutes"" because they look like dome-shaped jellyfish. Rounds are
+rarely used by skydivers these days. The first round parachutes were simple, flat circulars, but suffered from
+instability, so most modern round parachutes are some sort of conical or parabolic.
+Some round parachutes are steerable, but not to the extent of the ram-air parachutes. An example of a steerable
+round is provided in the picture of the paratrooper's canopy; it is not ripped or torn but has a ""T-U cut"". This
+kind of cut allows air to escape from the back of the canopy, providing the parachute with limited forward
+speed. This gives the jumpers the ability to steer the parachute and to face into the wind to slow down the
+horizontal speed for the landing. 
+Annular & pull down apex parachutes
+A variation on the round parachute is the pull down apex parachute invented by a Frenchman named LeMoigne
+-- referred to as a Para-Commander-type canopy in some circles, after the first model of the type. It is a round
+parachute, but with suspension lines to the canopy apex that apply load there and pull the apex closer to the
+load, distorting the round shape into a somewhat flattened or lenticular shape.
+Often these designs have the fabric removed from the apex to open a hole through which air can exit, giving the
+canopy an annular geometry. They also have decreased horizontal drag due to their flatter shape, and when
+combined with rear-facing vents, can have considerable forward speed around 10 mph (15 km/h).
+Ribbon and ring parachutes
+Ribbon and ring parachutes have similarities to annular designs and they can be designed to open at speeds as
+high as Mach 2 (two times the speed of sound). These have a ring-shaped canopy, often with a large hole in the
+center to release the pressure. Sometimes the ring is broken into ribbons connected by ropes to leak air even
+more. The large leaks lower the stress on the parachute so it does not burst when it opens.
+Often a high speed parachute slows a load down and then pulls out a lower speed parachute. The mechanism to
+sequence the parachutes is called a ""delayed release"" or ""pressure detent release"" depending on whether it
+releases based on time, or the reduction in pressure as the load slows down.
+Ram-air parachutes
+Most modern parachutes are self-inflating ""ram-air"" airfoils known as a Para foil that provide control of speed
+and direction similar to Para gliders. Para gliders have much greater lift and range, but parachutes are designed
+to handle, spread and mitigate the stresses of deployment at terminal velocity. All ram-air Para foils have two
+layers of fabric; top and bottom, connected by airfoil-shaped fabric ribs. The space between the two fabric
+layers fills with high pressure air from vents that face forward on the leading edge of the airfoil. The fabric is
+shaped and the parachute lines trimmed under load such that the ballooning fabric inflates into an airfoil shape.
+A U.S. NAVY display jumper landing a 'square' ram-air parachute 
+Reserves
+Paratroopers and sports parachutists carry two parachutes. The primary parachute is called a main parachute, the
+second, a reserve parachute. The jumper uses the reserve if the main parachute fails to operate correctly.
+Reserve parachutes were introduced in World War II by the US Army paratroopers, and are now almost
+universal. For human jumpers, only emergency bail-out rigs have a single parachute and these tend to be of
+round design on older designs, while modern PEPs (i.e P124A/Aviator) contain large, docile ram-air parachutes.
+Deployment
+Reserve parachutes usually have a ripcord deployment system, but most modern main parachutes used by sports
+parachutists use a form of hand deployed pilot chute. A ripcord system pulls a closing pin (sometimes multiple
+pins) which releases a spring-loaded pilot chute and opens the container, the pilot chute is propelled into the air
+stream by its spring then uses the force generated by passing air to extract a deployment bag containing the
+parachute canopy, to which it is attached via a bridle. A hand deployed pilot chute, once thrown into the air
+stream, pulls a closing pin on the pilot chute bridle to open the container, then the same force extracts the
+deployment bag. There are variations on hand deployed pilot chutes but the system described is the more
+common throw-out system. Only the hand deployed pilot chute may be collapsed automatically after
+deployment by a kill line reducing the in-flight drag of the pilot chute on the main canopy. Reserves on the
+other hand do not retain their pilot chutes after deployment. The reserve deployment bag and pilot chute are not
+connected to the canopy in a reserve system, this is known as a free bag configuration and the components are
+often lost during a reserve deployment. Occasionally a pilot chute does not generate enough force to either pull
+the pin or extract the bag, causes may be that the pilot chute is caught in the turbulent wake of the jumper (the
+""burble""), the closing loop holding the pin is too tight, or the pilot chute is generating insufficient force, this
+effect is known as ""pilot chute hesitation"" and if it does not clear it can lead to a total malfunction requiring
+reserve deployment.
+Paratroopers' main parachutes are usually deployed by static lines which release the parachute yet retain the
+deployment bag which contains the parachute without relying on a pilot chute for deployment. In this
+configuration the deployment bag is known as a direct bag system and the deployment is rapid, consistent and
+reliable. This kind of deployment is also used by student skydivers going through a static line progression, a
+kind of student program.
+Using the modeling process, build a mathematical model for the opening of the parachutes discussed
+above. We are concerned with how the parachute inflates. Use your model to explain how the geometry
+of the folding of the parachute affects the inflation and then discuss how we might affect the rate of
+inflation of the parachute. 
+"
 329,shayaa/vifplot,R,"# Dynamic VIF Plot
 
 This shiny app demonstrates the dynamic variance inflation factor described by Stine (1995) using the Duncan dataset of the prestige of 45 U.S. occupations in 1950 from the car package. We can dynamically examine the multicolliearity that exists between the occupation type, and the income, education and prestige levels.  
@@ -8048,11 +8767,54 @@ Variance inflation factor (VIF) A common function used for testing regression as
 The Variance Inflation Factor is a measure of colinearity among predictor variables within a multiple regression.
 It is calculated by taking the the ratio of the variance of all a given model's betas divide by the variance of a single beta if it were fit alone.
 "
+331,pmuilu/econ_data,,"# econ_data
+EU inflation data
+
+Source: EuroStat
+"
 332,marinewater/inflation-austria,TypeScript,"[https://marinewater.github.io/inflation-austria/](https://marinewater.github.io/inflation-austria/)
 "
 333,jbowmer/RBAInflationForecasts,R,
 334,elliott-wen/InfamousInflation-SwiftLaTex,TeX,"# InfamousInflation-SwiftLaTex
 SwiftLaTeX Project Infamous Inflation
+"
+335,Inflation-Partners/inflation.github.io,,"## Welcome to GitHub Pages
+
+You can use the [editor on GitHub](https://github.com/Inflation-Partners/inflation.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+
+Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+
+### Markdown
+
+Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+
+```markdown
+Syntax highlighted code block
+
+# Header 1 About
+## Header 2
+### Header 3
+
+- Bulleted
+- List
+
+1. Numbered
+2. List
+
+**Bold** and _Italic_ and `Code` text
+
+[Link](url) and ![Image](src)
+```
+
+For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+
+### Jekyll Themes
+
+Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Inflation-Partners/inflation.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+
+### Support or Contact
+
+Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
 "
 336,RanjithRShetty/Variance-inflation-factor-VIF-,Jupyter Notebook,"# Variance-inflation-factor-VIF-
 Variance inflation factor (VIF) 
@@ -8112,6 +8874,9 @@ Currently it only supports USD, but later iterations will hope to add a country 
 340,sandy-goli/time-series-analysis,Jupyter Notebook,"# time-series-analysis
 US CPI Inflation rate
 "
+341,syyunn/inflhedge-suppchain,,"# inflhedge-suppchain
+inflation hedge and supplychain
+"
 342,zahidaliayub/inflationcoin,C++,"InflationCoin - IFLT
 
 InflationCoin is an X11 PoW/PoS coin. It is a coin that integrated with true random super bonus block features. It uses high PoS as a way of distributing fairly the coins to community.
@@ -8161,6 +8926,9 @@ An iOS inflation calculator app that works for multiple currencies and allows fo
 346,bdemeshev/inflation.project,R,
 347,sdglhm/inflation-lk,JavaScript,"# inflation-lk
 Inflation adjusted calculator
+"
+348,pgg1309/uk-inflation,,"# uk-inflation
+UK CPI Inflation
 "
 349,adityamodi11/Inflation-Web-App,Python,"# Inflation-Web-App
 Inflation Web App
@@ -8245,6 +9013,9 @@ https://inflotto.netlify.app/
 "
 356,totallyviable/inflator,Swift,
 357,Binary-Finery/UKInflationCalculator,Kotlin,
+358,prawn15/ATIS,,"# ATIS
+AUTONOMOUS TYRE INFLATION SYSTEM
+"
 359,zachwe/inflation-adjuster,JavaScript,"You have: a csv timeseries of unadjusted US dollars.
 
 You want: a timeseries of inflation-adjusted US dollars.
@@ -8281,6 +9052,9 @@ You may also see any lint errors in the console.
 ###### This is a joke. 💩
 "
 361,joaquinlpereyra/cuotitas,HTML,
+362,Tortolala/Inflatiometer,,"# Inflatiometer
+Caracas' inflation monitoring app
+"
 363,akinjyde/Constitutive-modeling-of-extension-inflation-test-data,Python,"# murine-vagina
 vaginal inflation extension modeling
 ## **About the code**:
@@ -8623,6 +9397,9 @@ Canada's inflation rate forecasting using Autoregression, Random Forest and Long
 # LSTM 12-step forecast
 ![](https://github.com/andylow1704/Inflation_Forecasting/blob/main/Images/LSTM_12.PNG)
 "
+377,NoahSato/Inflation.-Project,,"# Inflation.-Project
+Visual Representations Based on Historical Income and Inflation Data
+"
 378,bogdantomicic/inflation_calculator,JavaScript,
 379,nchukalovskiy/spark-inflation,Python,"# spark-inflation
 
@@ -8632,6 +9409,8 @@ Web scraping with Kafka-Spark Structured Streaming (w/Mllib) and monitoring with
 This Inflation Calculator measures the buying power of the dollar over time.
 
 Project link: https://inflation-calculator.azurewebsites.net/
+"
+381,BCzyzewski/Inflation_Dashboard,,"# Inflation_Dashboard
 "
 382,fvillarreal27/Inflation_Forecast,Jupyter Notebook,"### **Inflation Forecast in a Dollarized Economy: The Case of Ecuador**
 
@@ -8651,9 +9430,16 @@ This project compares the use of traditional econometric methods, such as the ve
 
 
 "
+385,sarah-springer/AF_Inflation,,"# AF_Inflation
+AF Simulation für die Inflation
+"
 386,ivan-cc-cc/Education-Inflation,R,
 387,MaxKocheshkov/Dynamic_inflation,Python,
 388,nbadino/gtrend-inflation,R,# gtrend-inflation
+389,andreacutrera/Forecasting-Inflation,,"# Forecasting-Inflation
+A project work for predictions of inflation of euro area. Creation of a predictive ARMA model for the time series of quarterly data of inflation.
+Predictions are up to last quarter of 2020.
+"
 390,lvdonofrio14/Inflation-ML,Jupyter Notebook,"# Building a Resilient Portfolio
 ## Mala Sharma, Alexander Narvaez-Duckworth, Louis Donofrio, George Mihalopoulos, Matt Szoke
 
@@ -8794,6 +9580,7 @@ the results are printed to the console
 ## contributors
 
 Austin Gray"
+392,shiro8x8/project-inflation,,
 393,RexDeux/Inflation-Dashboard,Ruby,"# README
 
 This README would normally document whatever steps are necessary to get the
@@ -8820,6 +9607,17 @@ Things you may want to cover:
 * ...
 "
 394,fndpires/BRAZIL-Inflation,Jupyter Notebook,
+395,SolvingInflation/SolvingInflation,,"- 👋 Hi, I’m @SolvingInflation
+- 👀 I’m interested in Hiring Solidity and Blockchain Devs who want to solve a real global problem 
+- 🌱 I’m currently learning Smart contracts 
+- 💞️ I’m looking to collaborate on working together in 2022
+- 📫 How to reach me when you want to be part of the team and the mission: jobs@thestandard.io 
+
+<!---
+SolvingInflation/SolvingInflation is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+--->
+"
 396,Beyramayadi/inflation-calculator,HTML,
 397,mnperic/forecasting-inflation,Jupyter Notebook,"# Forecasting Inflation
  Forecasting Australian inflation (CPI) figures using machine learning (fbProphet).
@@ -8862,21 +9660,45 @@ Using [Mocha](http://mochajs.org/) and [Expect](https://github.com/LearnBoost/ex
 "
 399,Cheo21/inflation-calculator,HTML,
 400,natrajvairavan5/Predicting-Inflation,Jupyter Notebook,
+401,vn-quant/inflation-eu,,"# Inflation rate-eu
+I use data from trading economics to visualize the inflation rate in some EU countries 
+
+![inflation rate reduce](https://user-images.githubusercontent.com/83815398/177717678-ecc99560-0765-443b-90e5-107a8a18deb2.jpg)
+
+Reference 
+1. https://twitter.com/AntoniaPopes/status/1526844887060070402
+2. https://tradingeconomics.com/country-list/inflation-rate?continent=europe
+3. https://ec.europa.eu/eurostat/documents/2995521/14636256/2-31052022-AP-EN.pdf/3ba84e21-80e6-fc2f-6354-2b83b1ec5d35#:~:text=Euro%20area%20annual%20inflation%20is,office%20of%20the%20European%20Union.
+"
 402,OGADAMo/inflation-calculator,JavaScript,"""# js-kurs-kalkulator-inflacije"" 
 "
 403,N1ktt/SUSin-inflation,JavaScript,# SUSin-inflation
 404,maritsandstad/CorpInflation,TeX,
 405,rossngreenwood/eternal_inflation,MATLAB,# eternal_inflation
+406,IoannisPapadakis/inflation-cpi,,"# inflation-cpi
+Convert dollar amounts between years using BLS CPI figures
+"
 407,FouadAElNahal/LayoutInflation,Java,
 408,jakepscott/Inflation-Analysis,R,
 409,YizhouLouisLu/Inflation_computation,Julia,
+410,bhaveshkumar80/Medical-Inflation,,"# Medical-Inflation
+A notebook with the analysis of Medical categories  and subcategories CPI result over the years and Prediction of next 10 year results
+"
+411,jy2915/Inflation_202107,,
+412,ruhl0029/inflation-markets,,"# Inflation, the Fed's dilemma, and the stock market
+Files associated with my presentation at UW Now on February 15, 2022.
+"
 413,KieranStewart-Phillips/Upload_inflation,HTML,# Upload_inflation
 414,InteligenciaEmpresarial/Inflation_tracker,Python,"# Inflation_tracker
  
 "
+415,natalierw/food-inflation,,"# Where's The Beef...<em>Price</em>?
+An exploratory analysis of food price inflation during the COVID-19 pandemic. This analysis was the final project for a Master's level econometrics course, in which we were instructed to write a blog-post.
+"
 416,gafnts/Inflation-forecasting,TeX,"# Inflation-forecasting
 Comparison between econometric and machine learning models for inflation rate forecasting.
 "
+417,dsofe/inflation-data,,
 418,kgroble/grade-inflation,Jupyter Notebook,
 419,CristiPriciu/Inflation-Calculator,C#,"# Inflation Calculator
 
@@ -8886,6 +9708,7 @@ If you know some SQL you might rebuild the database starting with inflationDB.sq
 
 If not, just see the C# and know that its working.
 "
+420,ivan-cc-cc/Education-Inflation-,,
 421,anduckworth/ml_inflation,Jupyter Notebook,"# Building a Resilient Portfolio
 ## Mala Sharma, Alexander Narvaez-Duckworth, Louis Donofrio, George Mihalopoulos, Matt Szoke
 
@@ -8978,6 +9801,8 @@ Google Slides and README editing by Mala Sharma. Everything in this project was 
 # To Deploy more, Please visit: https://inflationpred1.herokuapp.com/
    
 "
+423,zyxd/inflation-api,,"# inflation-api
+![inflation-api build](https://github.com/jltimm/inflation-api/workflows/inflation-api%20build/badge.svg?branch=master)"
 424,aditya4274/Inflation-forecast,R,"# USA Inflation-forecast
 
 What we are currently working on? :nerd_face:
@@ -9001,12 +9826,18 @@ Consumer Price Index (CPI) measures changes over time in the general level of pr
 
 In this Tableau Visualization, we take a look on how much the inflation really affects european citizens and how much is lost to it. There is a deep dive to understand which categories affect the most and whether or not the minimum wage increases in order to attenuate the efects of inflation.
 "
+427,djvex/inflation-sucks,,��#
 428,ajraduenz/graphics-inflation,TypeScript,"- Brazilian Inflation 
 - Compound interest chart
 - Simulador de juros fácil, Juros Composto, Calculadora de juros composto"
+429,garcialn/Inflation_Prediction,,"# Inflation_Prediction
+Repo for Brazilian Inflation (IPCA) Prediction using Time Series.
+"
+430,kylemouly/Forecasting-Inflation,,
 431,xhp4y8/admin_inflation,R,"# admin_inflation
 Codes and data for administered inflation paper 
 "
+432,Junying123/test_inflation,,
 433,LeifAndersenGH/Inflation-Visualization,Jupyter Notebook,
 434,elmarmertens/trendInflation,Fortran,"# trendInflation
 
@@ -9026,6 +9857,7 @@ Complete replication files for the paper are here: http://dx.doi.org/10.7910/DVN
 435,harunsaracevicc/Inflation-calculator,CSS,
 436,VSStole/Inflation-Calculator,CSS,"# Inflation-Calculator<img width=""598"" alt=""calc picture"" src=""https://user-images.githubusercontent.com/96592956/170838296-6d4d310a-42be-4c45-975d-a8bd3735bd95.png"">
 "
+437,dadaset/reprovacao-inflation,,
 438,EntropistA/inflation-visualization,Jupyter Notebook,
 439,cpohkwan/food-inflation,Jupyter Notebook,"**From lunchflation woes to global inflation pains**
 
@@ -9100,6 +9932,7 @@ All data comes from the [Statistics Poland (Polish: Główny Urząd Statystyczny
 
 - I came across ['us-inflation' package](https://www.npmjs.com/package/us-inflation).
 - I was inspired by the president of the National Bank of Poland and his statement that [""inflation does not affect the wealth of Polish citizens""](https://youtu.be/njqEBOntE9I) (I rephrased it a bit for the sake of clarity)."
+441,NjaNja7/inflation-calculator,,# inflation-calculator
 442,cptanalatriste/inflation-tracker,Java,"You have successfully created an Atlassian Plugin!
 
 Here are the SDK commands you'll use immediately:
@@ -9167,6 +10000,7 @@ Start over? n
 ```
 "
 444,ahjames11/shinyInflation,R,
+445,federalfundstracker/Inflation-Adjuster,,
 446,Judas503/Inflation-code,Python,"Python codes that numerically compute inflaton trajectories for ultra slow-roll inflation to evaluate the power spectrum of curvature pertrubations by solving the Mukhanov-Sasaki equation.
 "
 447,tkmymini/reconfigure_inflation,Python,
@@ -9240,6 +10074,8 @@ Measure inflation following 2020 COVID-19 market crash
 The code generates two .txt files;
 one includes (t,phi) and the other includes the total number of e-folds.
 "
+453,thanut303/inflation-token,,"# inflation-token
+"
 454,ariqd/CalcInflation,Java,
 455,wwkkww/inflation-calc,Java,
 456,glass9/inflation-calculator,HTML,# Inflation-Calculator
@@ -9276,6 +10112,7 @@ To train our ML model, we need to collect some data. We'll take some screenshots
 The screenshots from Instacart should be saved in the data/images folder and the annotations should be saved in data/annotations folder.
 
 "
+460,TheLandStander/inflation-calculator,,
 461,rita-milani/Inflation_barchart,Jupyter Notebook,"[![author](https://img.shields.io/badge/author-rmilani-red.svg)](https://www.linkedin.com/in/rita-de-cassia-m-59ab7451/) [![](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/release/python-365/) [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/rafaelnduarte/portfolio/issues)
 
 <p align=""center"">
@@ -9372,6 +10209,8 @@ Error: No UK inflation data available for the year 2016
 468,keesvanz/Inflation-Calculator,Python,
 469,justthetips/ml_inflation,Python,"# ml_inflation
 Machine Learning to Predict Inflation
+"
+470,emgriffin6/predict_inflation,,"# predict_inflation
 "
 471,maritaria/inflation-calculator,HTML,
 472,shawn8777/Inflation-master,C#,"# Inflation
@@ -9667,6 +10506,11 @@ This analysis provides a quick overview of the dynamics of inflation in Kosovo a
 
 A short analysis based on the data can be found [here](https://medium.com/@gentiangsh/a-quick-look-at-inflation-in-kosovo-2ef2227bd638).
 "
+489,heisxiang/purchasing-power,,"# Is Inflation Outpacing Wage Growth?
+How many of us have heard friends/family/ourselves complain about how everything has grown except their salary? Is this really true? Are prices really increasing more than our salaries? 
+
+Is our purchasing power really decreasing, or is it just an illusion?
+"
 490,pinglinh/inflation_calculator,Ruby,"# Inflation Calculation
 
 A simple web service which calculates average inflation UK house price based on user input start price, from date and to date and region (borough).
@@ -9696,6 +10540,7 @@ A simple web service which calculates average inflation UK house price based on 
 3. Add animation
 4. PROBLEM!!! Not all regions have the same date range for the index therefore maybe make the user choose the region first and alert them of the date range before they input the dates - or just list the range available when the user clicks to select dates
 "
+491,sgraffite/inflationary-english,,# inflationary-english
 492,rfcoffee/Symmetron-Inflation,C++,"# Symmetron-Inflation
 
 Solve the coupled equations between inflaton and the matter field in the symmetron inflation model.
@@ -9712,9 +10557,12 @@ Data pulled from [here](https://www.inflation.eu/)
 The vision for this project is to create a utility that allows me to easily engage with inflation data for financial analysis. This includes potential functionality like importing the inflation data for various countries into one's analysis notebooks.
 "
 494,itamarcaspi/wage-inflation,HTML,
+495,dynamonda/inflation-unity,,
 496,jsnns/personal-inflation,TypeScript,
+497,Brainstorrrm/Inflation-Chart,,
 498,Rep17/Upload_inflation,HTML,# Upload_inflation
 499,juliapratt/Upload_inflation,HTML,# Upload_inflation
+500,edgarcutar/covid_inflation,,
 501,razumau/rating_inflation,HTML,"### Rating inflation research data
 Data collection scripts (downloading and parsing of data from https://rating.chgk.info; data from https://rating.maii.li was downloaded directly from its database) and raw data (see [csv](/csv) folder).
 
@@ -9884,6 +10732,88 @@ uses pipenv to manage dependencies
 513,ecasanovas/inflation_intrate,Stata,"# inflation_intrate
 Comparison of different measures of inflation and risk-free interest rate, downloaded directly from FRED into Stata using freduse.  
 "
+514,alanwhite1203/fiInflation,,"# Inflation Indexed Bond 
+
+Inflation indexed bonds, also called inflation linked bonds or real return bonds, are bonds where the principal is indexed to inflation or deflation on a daily basis in terms of a reference index, such as Consumer Price Index (CPI). The CPI is the proxy for inflation that measures price changes in a basket of goods and services. 
+
+The main idea of inflation indexed bonds is that investing in the bond will generate a certain real return. Inflation indexed bonds pay a periodic coupon that is equal to the product of the daily inflation index and the nominal coupon rate. Therefore, even though the nominal value of the coupons and principal may change, the real return of these remains the same. Unlike regular (nominal) bonds, inflation indexed bonds assure that your purchasing power is maintained regardless of the future rate of inflation. 
+
+An inflation indexed bond is designed to hedge the inflation risk of the bond. Since inflation indexed bonds offer investors a very high level of safety, their coupons are typically lower than high-yield bonds. It is an important vehicle for investors whose liabilities indexed to changes in inflation or wages. Inflation indexed bonds have favorable performance and lower volatility relative to other risk assets. It is favorable to retirement planning and pension funds given its inflation protection. Inflation indexed bonds are less liquid than regular bonds. This presentation provides an overview of inflation indexed bond product and valuation. 
+
+
+	Inflation Indexed Bond Introduction
+	Inflation indexed bonds, also called inflation linked bonds or real return bonds, are bonds where the principal is indexed to inflation or deflation on a daily basis in terms of a reference index, such as Consumer Price Index (CPI).
+	The CPI is the proxy for inflation that measures price changes in a basket of goods and services.
+	The main idea of inflation indexed bonds is that investing in the bond will generate a certain real return.
+	Inflation indexed bonds pay a periodic coupon that is equal to the product of the daily inflation index and the nominal coupon rate.
+	Therefore, even though the nominal value of the coupons and principal may change, the real return of these remains the same.
+	Unlike regular (nominal) bonds, inflation indexed bonds assure that your purchasing power is maintained regardless of the future rate of inflation.
+
+
+	The use of Inflation Indexed Bonds
+	Inflation indexed bonds are designed to hedge the inflation risk of a bond.
+	Since inflation indexed bonds offer investors a very high level of safety, their coupons are typically lower than high-yield bonds.
+	It is an important vehicle for investors whose liabilities indexed to changes in inflation or wages.
+	Inflation indexed bonds have favorable performance and lower volatility relative to other risk assets.
+	It is favorable to retirement planning and pension funds given its inflation protection.
+	Inflation indexed bonds are less liquid than regular bonds.
+
+
+	Valuation
+	The present value of an inflation indexed bond is given by
+
+	 
+
+
+ 		PV(t)=∑_(i=1)^n▒C ̅_i  D_i+(P_n ) ̅D_n
+where
+	t	the valuation date
+	(C_i ) ̅=C*CPI(T_i )/CPI(T_I)	the inflation adjusted coupon at payment  date T_i                      
+	(P_n ) ̅=P*CPI(T_n )/CPI(T_I)	the inflation adjusted principal at maturity date T_n
+	CPI(t)	the base reference CPI at time t.
+	CPI(T_i )/CPI(T_I)	the CPI ratio at T_i
+	T_I	the issue date.
+	D_i=D(t,T_i)	the discount factor from T_i to t.
+
+
+	Practical Guide
+	First construct inflation curve by bootstrapping either breakeven inflation swap rates or treasury inflation protected securities (TIPS).
+	Compute the base reference CPIs at the issue date and each payment date.
+	Adjust the coupons and principal based on CPI ratio at each payment date.
+	Discount all the coupons and principal to the valuation date.
+	The bond price is the sum of all the present values.
+
+
+	A Real World Example
+
+Buy Sell	Buy
+Calendar	NYC
+Coupon Type	Fixed
+Coupon	0.00375
+Currency	USD
+Issue Date	7/31/2015
+Interest Accrual Date	7/15/2015
+First Coupon Date	1/15/2016
+Last Coupon Date	1/15/2025
+Maturity Date	7/15/2025
+Settlement Date	7/31/2015
+Settlement Lag	1
+Day Count	dcActAct
+Payment Frequency	6M
+Pay Receive	Receive
+Inflation Reference Index	CONSUMER PRICE INDEX US
+Inflation Reference Index Level	237.14365
+Notional	100
+
+
+
+Reference:
+
+https://finpricing.com/lib/EqBarrier.html
+
+https://bitbucket.org/cmrm11/fiinflation/downloads/FiInflationBond-15.pdf
+
+"
 515,valerieboctor/CBAs-Inflation,TeX,"This repo is used for .tex files and python scripts associated with the project ""Bringing Expectations to the Collective Bargaining Table: Evidence from Brazilian Firms""
 "
 516,esiu-23/inflation_minwage,Python,"# inflation_minwage: 
@@ -9915,6 +10845,24 @@ The inflaton field $\boldsymbol\phi$ that has been postulated to drive accelerat
 
 Simple calculator that calculates the value of money in future based on inflation rate.<br />
 https://inflation-calculator-2022.netlify.app/
+"
+521,BBC-Data-Unit/gin-inflation,,"# Why is gin and tonic getting pricier?
+
+![](https://ichef.bbci.co.uk/news/624/cpsprodpb/13432/production/_99389887_chart-gintonic_birmingham-mhr7c-nc.png)
+
+In December 2017 **Daniel Wainwright** [reported that the price of the average bottle of gin has risen by about a quarter in the past five years, with the accompanying tonic water also rising](http://www.bbc.co.uk/news/uk-england-42286701). The story was based on historical price data obtained from the price monitoring service MySupermarket, which was then adjusted for inflation. The Wine and Spirits Trade Association were approached for a comment, and sent a press release which contained further figures on the gin industry.
+
+Dan also spoke to distillers and Vhari Russell of the Food Marketing Expert, and visited The Gin Vault in Birmingham to speak to staff and customers about changes in the gin market.
+
+## Get the data
+
+* Spreadsheet: [Drink prices 2012-2017, adjusted for inflation, with differences](https://github.com/BBC-Data-Unit/gin-inflation/blob/master/drinkcosts5dec17_pluscalcs.xlsx)
+* Press release: [Gin sales are up as drinkers vote it their favourite spirit tipple ](https://github.com/BBC-Data-Unit/gin-inflation/blob/master/WSTA%20-%20Gin%20sales%20soar.docx) (Wine and Spirits Trade Association)
+
+## Visualisation
+
+* Multiple bar chart: How much drinks prices have changed - 2017 vs 2012
+* Infographic: Festive spirit - stats on gin sales in the UK
 "
 522,exabyteso/inflation-tool,Java,"This project is an inflation calculator that finds the value of an inputted amount based on the
 Consumer Price Index (CPI) of the years in question"
@@ -9965,6 +10913,9 @@ Shekhar Tomar, ISB
 We use novel survey data on Indian households to evaluate the contribution of inflation targeting in anchoring inflation expectations. The novel feature of the database; viz., its availability before and after the adoption of inflation targeting by the Reserve Bank of India in 2015 allows us to compare the evolution of household inflation ex- pectations relative to inflation dynamics during these two periods. Our results show that households’ expectations of consumer price inflation, which were not anchored before the switch to inflation targeting, become so after the switch, not only in the aggregate, but also in the two major components, food and non-food. Importantly, we find that it is the lower spillover from persistently volatile food inflation to both food and non-food inflation expectations after 2015 that explains improved price sta- bility performance and anchoring of household inflation expectations after the switch to inflation targeting.
 
 Codes for the working paper have been organized in order in the Code folder.
+"
+529,skad00sh/vif,,"# vif
+Variance Inflation Factor aka VIF
 "
 530,andrewsalber/inflation-calculator,HTML,
 531,Sitenl/bra-inflationtools,Python,"# BRA-inflationtools
@@ -10191,6 +11142,13 @@ MIT (See LICENSE file).
 A computational platform for The Inflation Technique in python
 "
 543,Warfelz16/zero-inflation,HTML,
+544,Real-John-Cheung/NFT-Inflation,,"# NFT-Inflation
+The idea is to create a NFT that is linked to a picture of a QR code, when the NFT is sold and the QR code is scanned, a new QR code derived from it will be generated and minted in the market. When the new NFT is sold and the new QR code is scanned, the same process will be triggered.
+
+This is the repo for the website and (maybe) the heroku app
+
+BY [John C](https://johncheung.feedia.co)
+"
 545,fgreve/chilean_inflation,Jupyter Notebook,
 546,ktm21/pln-inflation,JavaScript,
 547,nachosdt/scraping-inflation,JavaScript,"# Scraping the Inflation
@@ -10483,6 +11441,7 @@ Floating Catchment Area (FCA) methods are a popular tool to investigate accessib
 558,phil20686/Measuring-Inflation,Python,# Measuring-Inflation
 559,josegalvez/multifield-inflation,FORTRAN,"# multifield-inflation
 "
+560,irvin-welsh/inflation_counter,,
 561,dankaufmann/historical_inflation,Stata,"﻿-----------------------------------------------------------------------------------------------
 Daniel Kaufmann, “Is Deflation Costly After All? The Perils of Erroneous Historical 
 Classifications,"" Journal of Applied Econometrics, forthcoming
@@ -10929,6 +11888,10 @@ see the `examples` directory for more complicated potentials and metrics, how to
 
 At the moment, `Inflation.jl` can only solve the 2-pt correlation function equations of motion. Solving for higher-point correlation functions is possible with [PyTransport](https://github.com/jronayne/PyTransport)/[CppTransport](https://github.com/ds283/CppTransport).
 "
+566,nondejus/bijstandsuitkering-inflation,,"# bijstandsuitkering-inflation
+the dutch zeroconomie
+https://nl.wikipedia.org/wiki/Staat_der_Nederlanden
+"
 567,duembgen-lutz/TailInflation,R,
 568,KBuck2018/inflation-frontend,JavaScript,"# Getting Started with Create React App
 
@@ -11000,6 +11963,107 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+"
+569,karenz50/inflation_analysis,,"# inflation_analysis
+Personal project to analyze the relationship between gas prices and inflation
+
+Used GCP BigQuery to store gas price and GDP information with the goal of predicting recessions with changes in the gas prices and GDP.
+
+## Dataset
+GCP BigQuery uses datasets instead of databases; any references to a ""dataset"" refers to a database.
+
+This is the command to create and verify a dataset:
+
+``` bigquery
+bq mk -d --description ""My recession analysis"" recession_db
+bq ls
+bq show --format=prettyjson recession_db
+```
+
+## Tables
+The project included one dataset, recession_db, with 2 tables, gas_price and gdp.
+
+### Table gas_price: 
+| Column Name | Type | Mode |
+| ----------- | ---- | ---- |
+| price_date | DATE | REQUIRED |
+| price_per_gallon | FLOAT | REQUIRED |
+
+### Table gdp: 
+| Column Name | Type | Mode |
+| ----------- | ---- | ---- |
+| gdp_date | DATE | REQUIRED |
+| gdp_value | FLOAT | REQUIRED |
+| gdp_change | FLOAT | REQUIRED |
+
+## Source of Data
+### Gas Price Data 
+Weekly Texas Regular Conventional Retail Gasoline Prices: https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=EMM_EPMRU_PTE_STX_DPG&f=W
+### GDP Data
+Gross Domestic Product of the United States (US GDP): 
+https://datahub.io/core/gdp-us
+
+## Create Tables
+### GDP Table
+A json schema file is used for creating the gdp table.
+
+#### gdp_schema.json
+``` json
+[
+  {
+    ""mode"": ""REQUIRED"", 
+    ""name"": ""gdp_date"", 
+    ""type"": ""DATE""
+  }, 
+  {
+    ""mode"": ""REQUIRED"", 
+    ""name"": ""gdp_value"", 
+    ""type"": ""FLOAT""
+  }, 
+  {
+    ""mode"": ""REQUIRED"", 
+    ""name"": ""gdp_change"", 
+    ""type"": ""FLOAT""
+  }
+]
+```
+The first line of code below creates recession_db.gdp table using gdp_schema.json, the second line shows the schema of the table, and the last line verifies that there are no rows in the table.
+``` bigquery
+bq mk --table recession_db.gdp gdp_schema.json
+bq show --schema --format=prettyjson recession_db.gdp
+bq query --nouse_legacy_sql 'SELECT count(*) Total from recession_db.gdp'
+```
+### Gas Price Table
+A similar json file is used for creating the gas_price table.
+#### gas_price_schema.json
+```json
+[
+  {
+    ""mode"": ""REQUIRED"", 
+    ""name"": ""price_date"", 
+    ""type"": ""DATE""
+  }, 
+  {
+    ""mode"": ""REQUIRED"", 
+    ""name"": ""price_per_gallon"", 
+    ""type"": ""FLOAT""
+  }
+]
+```
+The first line of code below creates recession_db.gas_price table using gdp_schema.json, the second line shows the schema of the table, and the last line verifies that there are no rows in the table.
+``` bigquery
+bq mk --table recession_db.gas_price gas_price_schema.json
+bq show --schema --format=prettyjson recession_db.gas_price
+bq query --nouse_legacy_sql 'SELECT count(*) Total from recession_db.gas_price'
+```
+
+## Load Data
+### Load Data to GDP Table
+```bigquery
+bq load --noreplace --source_format=CSV --skip_leading_rows=1 recession_db.gdp gdp_quarter.csv
+bq show recession_db.gdp
+bq query --nouse_legacy_sql 'SELECT count(*) Total from recession_db.gdp'
+```
 "
 570,sbutler-gh/anti-inflationary,Svelte,"# create-svelte
 
@@ -11529,9 +12593,22 @@ This is alpha-quality software. Expect some bugs and incompatible changes in com
 # inflation-squid
 "
 593,foxsnow38/InflationRateToCentralBankOfTurkeyBetween2012_2022,HTML,website: https://infilationpercent2022.netlify.app/ (JSON)
+594,bonarbridge/inflation-stats,,"inflation-stats
+===============
+
+Inflation rates in US from 1960s to 2000s
+"
 595,spleenhouse/fisting,HTML,
+596,michaeljunokas/inflation_adjusted_ticker,,"# inflation_adjusted_ticker
+Adjusting stock prices for inflation
+"
 597,joepalardy/Inflation_Block,R,"# Inflation_Block
 Stan program 
+"
+598,Characterlimit/Cosmic-Inflation,,"Cosmic-Inflation
+================
+
+An Android/Desktop Top Down Shooter
 "
 599,fernote7/Inflation_Expectations,R,
 600,dybushnell/inflation_db,Ruby,"# InflationDb
@@ -11605,11 +12682,15 @@ Everyone interacting in the InflationDb project’s codebases, issue trackers, c
 "
 601,jedaboin/inflation-exp,Python,"# inflation-exp
 "
+602,noname1014/Aggressive-Inflation,,"# James and Lucas' assignment. Oh and that other guy
+This is the group assignment for ICT
+"
 603,VinniciusPS/Inflation-Calculator,Python,"# Inflation-Calculator
 Monetary correction calculator by ipca or igp-m. Data directly from IPEA
 
 Check the app in: https://share.streamlit.io/vinniciusps/inflation-calculator/main/ipea.py
 "
+604,greedisgud/Inflation-Tracker,,# Inflation-Tracker
 605,RM503/Stochastic_Inflation,Python,"# Numerical treatment of stochastic inflation in slow-roll and beyond
 "
 606,shruti-misra/inflation_viz,Jupyter Notebook,"# Design Decisions and Development Process
@@ -11695,6 +12776,9 @@ This repo is deployed at: https://shruti-misra.github.io/inflation_viz/
 "
 607,whoisnnamdi/cochrane-inflation,Jupyter Notebook,
 608,Dusan2001/Inflation-Kalkulator,JavaScript,
+609,rlivianu/inflation_rnd,,"# inflation_rnd
+ 
+"
 610,ruhl0029/inflation-consequences,Jupyter Notebook,"# Inflation and its consequences
 
 Data and code for the [UW Now](https://www.uwalumni.com/uw-now/) livestream, July 12, 2022.
@@ -11803,6 +12887,30 @@ MIT License, the text of which is available in [LICENSE](LICENSE).
 "
 614,Gant1855/Project-1-Group-2,Jupyter Notebook,
 615,cran/sifds,R,
+616,jwg4/british-inflation-data-from-literature,,"# british-inflation-data-from-literature
+British inflation data from literature
+
+The aim of this project is to gather information on prices across time from works of literature and to present it in an accessible way.
+
+Pull requests welcome - please feel free to add information in any convenient format if you have some.
+"
+617,clustersdata/1998-MCM-B-Grade-Inflation,,"# 1998-MCM-B-Grade-Inflation
+
+
+Background
+
+Some college administrators are concerned about the grading at A Better Class (ABC) college. On average, the faculty at ABC have been giving out high grades (the average grade now given out is an A-), and it is impossible to distinguish between the good and mediocre students. The terms of a very generous scholarship only allow the top 10% of the students to be funded, so a class ranking is required.
+
+The dean had the thought of comparing each student to the other students in each class, and using this information to build up a ranking. For example, if a student obtains an A in a class in which all students obtain an A, then this student is only “average” in this class. On the other hand, if a student obtains the only A is a class, then that student is clearly “above average.” Combining information from several classes might allow students to be placed in deciles (top 10%, next 10%, etc.) across the college.
+
+Problem
+
+Assuming that the grades given out are (A+, A, A-, B+,…), can the dean's idea be made to work? Assuming that the grades given out are only (A,B,C,…), can the dean's idea be made to work? Can any other schemes produce a desired ranking? A concern is that the grade in a single class could change many student's deciles. Is this possible?
+
+Data Sets
+
+Teams should design data sets to test and demonstrate their algorithms. Teams should characterize data sets that limit the effectiveness of their algorithms.
+"
 618,xenakas/inflation_targeting,TeX,"# Does Inflation Targeting Matter?
 ### Laurence Ball and Niamh Sheridan
 
@@ -11919,6 +13027,7 @@ few files in a web browser for now.
 629,david-isailovich/Inflation-Calculator,CSS,"# Inflation-Calculator
 My first Java Script project.
 "
+630,context-dependent/inflation-adjustment,,
 631,Peyman2012/Calculate-inflation,Jupyter Notebook,# Calculate-inflation
 632,emilioosmenaiv/US_Inflation,Jupyter Notebook,
 633,vincentbagilet/causal_inflation,HTML,"# Causal inflation
@@ -11985,6 +13094,9 @@ This code takes current-law provisions in the tax code and adjusts them for infl
 For more information see: http://taxfoundation.org/article/2015-tax-brackets
 "
 641,taskie/mystig,C++,
+642,zhaohualu/ZISDE,,"# ZISDE
+JAGS code for Zero-inflation Ornstein–Uhlenbeck process
+"
 643,juliokozarewicz/ipca,Python,"# **DESCRIPTION**
 The IPCA is an indicator to track inflation. It is calculated based on the average price needed to buy a set of goods and services in a country, compared to previous periods.
 
@@ -12058,6 +13170,7 @@ v.1:
 Preliminary and incomplete codes
 "
 646,freeman129/RO_rAthena_inflation_in_NPC_shop,C,
+647,covenasdl/ARIMA,,
 648,spider000111/emi_effect,Python,
 649,leejustin/sf-software-salary,Python,"# SF Software Salary
 
@@ -12120,6 +13233,7 @@ The source code is located at the [Github -> R](https://github.com/zq00/glmhd/tr
 If you encounter error or would like to provide feedback, please use [Github -> Issues](https://github.com/zq00/glmhd/issues) to reach us. Thank you! 
 "
 651,IeuanG/HyperInflation-CountDown,CSS,
+652,sriyapradhan/LaborForce-and-Inflation,,# LaborForce-and-Inflation
 653,kevin910162/Inflation-Linked-Bond-Design,MATLAB,"# Inflation-Linked-Bond-Design
  
 "
@@ -12145,7 +13259,15 @@ Manifestly Gauge-Invariant Cosmological Perturbation Theory from Full Loop Quant
 "
 657,joshuarichard/time-inflation-converter,JavaScript,"# react-ts-boilerplate
 "
+658,anees-patwa/payment-inflation-project,,# payment-inflation-project
 659,DylanMcBean/BalloonInflationGame,Processing,
+660,anushkau/Inflation-rate-forecasting,,"# Inflation-rate-forecasting
+We will be using the data provided by the world bank and try forecasting the inflation rate for the coming years of particular countries. This will be done in R.
+- Currently I am using an Inflation data set for my Business Forecasting Project. Using Inflation trends we intent to use past values for India and USA which will be helpful in forecasting future inflation. The data that we are using is based on Inflation as measured by the consumer price index reflecting the annual percentage change in the cost to the average consumer of acquiring a basket of goods and services that may be fixed or changed at specific intervals on yearly basis
+- This is an Economic Forecast and a Point forecast.
+- In order to bring out the best outcome, we will compute the accuracy of the specifications using Mean Absolute Percentage Error (MAPE). Mean Absolute Percentage Error (MAPE) = (Absolute Error/Actual Volume) * 100
+- In terms of time component, this is a Long Forecast. The trends are defined annually ranging from the year 1960-2020.
+"
 661,tulicsgabriel/Variance-Inflation-Factor-VIF-,Python,"# Variance-Inflation-Factor-VIF-
 ## Variance Inflation Factor in Python &amp; R
 
@@ -12214,14 +13336,125 @@ Then we compared these correlation values between the average grocery prices and
 
 We see strong correlation numbers for all our basic groceries for the first half of 2022. While we can draw the inflation can cause rise in the price of beef and bread we cannot say the same for milk and eggs. There must be other factors causing the rise of prices.
 "
+663,urvish7/Inflation_Unemployment_InterestRate,,# Inflation_Unemployment_InterestRate
 664,SaiGuy1/change-in-inflation,C++,"# change-in-inflation
 C++ program that outputs inflation rates for two successive years and whether the inflation is increasing or decreasing. 
 
 Program properly calculates rates of inflation based on prices of an item over the past two years input by the user. This program uses functions and passes parameters through reference and value. 
 "
+665,sing1/Layout-Inflation-as-Intended,,"转自：https://possiblemobile.com/2013/05/layout-inflation-as-intended/
+
+##Layout inflation is the term used within the context of Android to indicate when an XML layout resource is parsed and converted into a hierarchy of View objects. 
+It’s common practice in the Android SDK, but you may be surprised to find that there is a wrong way to use *LayoutInflater*, and your application might be one of the offenders. If you’ve ever written something like the following code using *LayoutInflater* in your Android application: 
+```Java
+inflater.inflate(R.layout.my_layout, null);
+```
+PLEASE read on, because you’re doing it wrong and I want to explain to you why.
+###Get to Know LayoutInflater
+Let’s first take a look at how *LayoutInflater* works. There are two usable versions of the *inflate()* method for a standard application: 
+```Java
+inflate(int resource, ViewGroup root)
+```
+```Java
+inflate(int resource, ViewGroup root, boolean attachToRoot)
+```
+The first parameter points to the layout resource you want to inflate. The second parameter is the root view of the hierarchy you are inflating the resource to attach to. When the third parameter is present, it governs whether or not the inflated view is attached to the supplied root after inflation.
+
+It is these last two parameters that can cause a bit of confusion. With the two parameter version of this method, *LayoutInflater* will automatically attempt to attach the inflated view to the supplied root. However, the framework has a check in place that if you pass *null* for the root it bypasses this attempt to avoid an application crash.
+
+Many developers take this behavior to mean that the proper way to disable attachment on inflation is by passing null as root; in many cases not even realizing that the three parameter version of *inflate()* exists. By doing things this way, we also disable another very important function the root view has…but I’m getting ahead of myself.
+###Examples from the Framework
+Let’s examine some situations in Android where the framework expects you as a developer to interactively inflate portions of the view.
+<br/>
+<br/>
+**Adapters** are the most common case for using LayoutInflater is custom ListView adapters overriding getView(), which has the following method signature:
+```Java
+getView(int position, View convertView, ViewGroup parent)
+```
+**Fragments** also use inflation often when creating views via onCreateView(); notice its method signature:
+```Java
+onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+```
+Have you noticed that every time the framework wants you to inflate a layout, they also pass you the parent *ViewGroup* it will eventually be attached to? Notice also that in most cases (including the above two examples), it will throw an Exception later on if *LayoutInflater* is allowed to automatically attach the inflated view to the root.
+
+So why do you suppose we are given this *ViewGroup* if we are not supposed to attach to it? It turns out the parent view is a very important part of the inflation process because it is necessary in order to evaluate the *LayoutParams* declared in the root element of the XML being inflated. Passing nothing here is akin to telling the framework “I don’t know what parent this view will be attached to, sorry.”
+
+The problem with this is *android:layout_xxx* attributes are always be evaluated in the context of the parent view. **As a result, without any known parent, all LayoutParams you declared on the root element of your XML tree will just get thrown away**, and then you’ll be left asking “why is the framework ignoring the layout customizations I defined? I’d better check SO and then file a bug.”
+
+Without LayoutParams, the *ViewGroup* that eventually hosts the inflated layout is left to generate a default set for you. If you are lucky (and in many cases you are) these default parameters are the same as what you had in XML…masking the fact that something is amiss.
+###Application Example
+So you claim you’ve never seen this happen in an application? Take the following simple layout that we want to inflate for a *ListView* row:
+####R.layout.item_row
+```Java
+<LinearLayout xmlns:android=""http://schemas.android.com/apk/res/android""
+　　android:layout_width=""match_parent""
+　　android:layout_height=""?android:attr/listPreferredItemHeight""
+　　android:gravity=""center_vertical""
+　　android:orientation=""horizontal"">
+　　<TextView
+　　　　android:id=""@+id/text1""
+　　　　android:layout_width=""wrap_content""
+　　　　android:layout_height=""wrap_content""
+　　　　android:paddingRight=""15dp""
+　　　　android:text=""Text1"" />
+　　<TextView
+　　　　android:id=""@+id/text2""
+　　　　android:layout_width=""0dp""
+　　　　android:layout_height=""wrap_content""
+　　　　android:layout_weight=""1""
+　　　　android:text=""Text2"" />
+</LinearLayout>
+```
+We want to set the height of our row to be a fixed height, in this case the preferred item height for the current theme…seems reasonable.
+
+However, when we inflate this layout the wrong way
+```Java
+public View getView(int position, View convertView, ViewGroup parent) {
+　　if (convertView == null) {
+　　　　convertView = inflate(R.layout.item_row, null);
+　　}
+ 
+　　return convertView;
+}
+```
+we end up with a result that looks like this<br/>
+![github](http://www.doubleencore.com/wp-content/uploads/2013/05/Image11-300x187.png ""github"")  
+What happened to the fixed height we set?? This is usually where you end up setting the fixed height on all your child views, switching the root elements height to *wrap_content*, and move on without really knowing why it broke (you may have even cursed at Google in the process).
+
+If we instead inflate the same layout this way
+```Java
+public View getView(int position, View convertView, ViewGroup parent) {
+　　if (convertView == null) {
+　　　　convertView = inflate(R.layout.item_row, parent, false);
+　　}
+ 
+　　return convertView;
+}
+```
+we end up with what we expected in the first place.<br/>
+![github](http://www.doubleencore.com/wp-content/uploads/2013/05/Image21-300x187.png ""github"")  
+Hooray!
+###Every Rule Has An Exception
+There are of course instances where you can truly justify a null parent during inflation, but they are few. One such instance occurs when you are inflating a custom layout to be attached to an *AlertDialog*. Consider the following example where we want to use our same XML layout but set it as the dialog view:
+```Java
+AlertDialog.Builder builder = new AlertDialog.Builder(context);
+View content = LayoutInflater.from(context).inflate(R.layout.item_row, null);
+ 
+builder.setTitle(""My Dialog"");
+builder.setView(content);
+builder.setPositiveButton(""OK"", null);
+builder.show();
+```
+The issue here is that *AlertDialog.Builder* supports a custom view, but does not provide an implementation of *setView()* that takes a layout resource; so you must inflate the XML manually. However, because the result will go into the dialog, which does not expose its root view (in fact, it doesn’t exist yet), we do not have access to the eventual parent of the layout, so we cannot use it for inflation. It turns out, this is irrelevant, because *AlertDialog* will erase any *LayoutParams* on the layout anyway and replace them with match_parent.
+
+So the next time your fingers are tempted to just type null into *inflate()*, you should stop and ask yourself “do I really not know where this view will end up?”
+
+Bottom line, you should think of the two parameter version of *inflate()* as a convenience shortcut to omit true as the third paramter. You should not think of passing *null* as a convenience shortcut to omit false.
+"
 666,MarcusMLarsson/Forecasting-Inflation-Stacked-Regressions,Jupyter Notebook,"This jupyter notebook uses stacked regressions to forecast the inflation rate in the United States. I developed this solution mainly for practise. 
 "
 667,biruk-chafamo/Scalar_Field_Inflation,Jupyter Notebook,
+668,isk-lie/hfwu_pension_n_inflation,,
 669,Monika2101/Inflation_rate_Prediction,Jupyter Notebook,# Inflation_rate_Prediction
 670,firstwan/malaysia-inflation-rate,Jupyter Notebook,
 671,FurkanToprak/inflation.ninja-backend,Python,"# inflation.ninja-backend
@@ -12272,6 +13505,14 @@ Exposed locally at `http://172.17.0.2:8080`
 ## Local Development
 ### Kill Container Locally
 `docker container list` and `docker container kill <id>`"
+672,yahya-maged/World-Inflation-SQL,,"# World-Inflation-SQL
+Data cleaning and Exploration of the IMF(International Monetary Fund) inflation data using SQL. The dataset includes all the countries around the world and the inflation rate for each of them (From 2005 to 2022).
+--
+Important note : That is only the first part of this Project, The second part will be visualizing the data and sharing the key findings from it through Tableau.
+"
+673,juujulio/inflation-br-today,,"# inflation-br-today
+The porpose of this project is to create an inflation history for queries
+"
 674,manasgithub005/Project-Inflation-Forecasting,Jupyter Notebook,
 675,larsmoe/inflationsrechner_base_functions,JavaScript,"# `angular-seed` — the seed for AngularJS apps
 
@@ -12752,6 +13993,9 @@ Adjusts old currency numbers for inflation using the API at https://www.statbure
 
 
 "
+682,ander265/box-office-inflation,,"# Box Office Inflation
+Updated Box Office Mojo scrapper for inflated box office grosses. 
+"
 683,terminal-labs/inflation_vmware-cluster,SaltStack,"## License
 
 MIT (See LICENSE file).
@@ -12762,6 +14006,7 @@ The goal of the project is to show Argentina's increasingly volatile and severe 
 
 This project consists of webscraping, data analysis, and visualization. The scraper collects monthly inflation data from Argentina's Central Bank's official website. Next, the program analyzes the data by identifying the years of highest inflation according to the Sum of Square Residuals. Lastly, it graphs the average of Argentina's tamer years of inflation and the two most extreme years of inflation.
 "
+685,aldo18001/Inflation-Forecast-w-LSTM,,
 686,ghiles10/Econometrics-Inflation-R,R,"# Econometrics-Inflation-R
 As part of the econometrics course, I was interested in inflation in OECD countries. I used the R software and the databases of the OECD and INSEE. I realized a project going from data cleaning to linear regression and tests based on the normality of residuals. 
 Indeed, I was interested in the Phillips curve, and in being able to explain the determinants of inflation from macroeconomic variables. 
@@ -12913,6 +14158,7 @@ This tool compares any amount of stock tickers entered by user, and shows perfor
 "
 696,bedirhanasn/Forecasting-Turkiye-Inflation-Rate,Python,
 697,wi-ll-ow/UE-R-Inflationmod,JavaScript,
+698,phatjkk/world_inflation_data,,
 699,edgardoa91/inflation_analysis_1,Python,"# Data Analysis
 
 This project is hosted on Google Cloud Run give it a few minutes after clicking the link. Thank You.
@@ -13262,6 +14508,11 @@ Then I had built a Dash app in **app.py**.
 # App Interface
 I have attached some **.png** files which shows the app interface and the visualization.
 "
+714,shuiruge/functions-for-cosmological-inflation,,"functions-for-cosmological-inflation
+====================================
+
+Some functions, written in Mathematica, that are useful for cosmological inflation models are collected at here.
+"
 715,LaurieScheepers/sa-inflation-calculator,Java,"# SA-Inflation-Calculator
 
 A simple app that calculates the current value adjusted by inflation.
@@ -13317,6 +14568,26 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 "
 723,meryjoy99/Correlators-From-Inflation,Jupyter Notebook,"# Correlators-From-Inflation
 Summer 2020 Project
+"
+724,Maura-Santos/final_product_inflation_rate,,"# Business question
+## What is the impact of the inflation rate on the sales price performance of a product?
+
+# Databases
+##### https://www.pordata.pt/Portugal/Taxa+de+Infla%c3%a7%c3%a3o+(Taxa+de+Varia%c3%a7%c3%a3o+do+%c3%8dndice+de+Pre%c3%a7os+no+Consumidor)+total+e+por+consumo+individual+por+objectivo-2315-181657
+
+##### https://www.global-rates.com/pt/estatisticas-economicas/inflacao/indice-de-precos-ao-consumidor/ipc/portugal.aspx
+
+##### https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_indicadores&indOcorrCod=0002390&contexto=bd&selTab=tab2
+
+# Step by Step
+
+##### * Recolher os dados da inflação no sector alimentar;
+##### * Recolher os dados da ficha tecnica;
+##### * criar uma tabela com os dados da ficha tecnica de um prato:
+#####     1. materias-primas;
+#####     2. preço Matéria-prima; unidade
+##### analisar os dados:
+#####     3. Verificar se os preços estão calculados para a porção de matéria-prima
 "
 725,iannjari/cbk-inflation-prediction,Jupyter Notebook,"# cbk-inflation-prediction
 Predicting Kenya's inflation Rate using CBK inter-bank rates, CBR rates, Foreign Trade cashflows and Mobile Money Payments
@@ -13511,6 +14782,7 @@ CPI &amp; Commodity Prices impacts on industrial projects
 "
 734,2020711mimi/Modelling-UK-inflation-quarterly-,HTML,# Modelling-UK-inflation-quarterly-
 735,bsurmanski/inflation_card_simulator,Python,
+736,Javerunion/anticipation_inflation_index,,# anticipation_inflation_index
 737,victor3105/django_inflation_table,Python,"# Построение таблицы
 
 Вам необходимо оценить динамику инфляции в РФ и подготовить сравнительную таблицу. У вас есть данные по инфляции в csv-файле, необходимо реализовать приложение, которое выводит размер инфляции по годам и месяцам в процентах и отображает общую инфляцию за год.
@@ -13551,6 +14823,7 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 "
+738,lehito21/brazilian_inflation_data,,
 739,africadatahub/adh-africa-inflation,Jupyter Notebook,"# African Inflation Rate data
 
 This repository contains a notebook that consolidates information on African
@@ -13927,6 +15200,9 @@ npm run build
 This will create a static folder called **build** in the root folder of the repository, which contains all the files necessary for deployment on a web server.
 
 > You can also preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+"
+745,ordinaries/inflation-for-the-meremortals,,"# inflation-for-the-meremortals
+This is an Inflation related posts July 25 2022
 "
 746,JaroslavKotrba/AppForecastingInflation,R,"# AppPredictionInflation
 
@@ -14546,6 +15822,61 @@ Both data and code are in MATLAB (tested on version 2018b). Here is a guideline 
 781,PsicoThePato/RTT-inflation-calculator,C,"# RTT-inflation-calculator
 EDII/TrabII 
 "
+782,ArjunVelayutham/Earnings-vs-Inflation,,"# Earnings-vs-Inflation
+This compares the change in the earnings of Johnson &amp; Johnson to the inflation rate of USD.
+---
+title: ""EarningIncrease vs Inflation""
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+
+
+```{r JohnsonJohnsonnumbers}
+summary(JohnsonJohnson)
+```
+
+## Johnson&Johnson Quarterly Earnings per Share
+
+At the moment the above numbers are, well, numbers. A plot that can more easily convey the information has been put below.
+```{r JohnsonJohnson, echo=FALSE, fig.width = 10, fig.height = 7}
+plot(JohnsonJohnson)
+```
+As you can see, the earnings per share of Johnson & Johnson have gone up dramatically over time. However, inflation should also be taken into consideration. If you didn't know, inflation is when, over time, money becomes worth less than it was before. When the inflation percent is high, that mean money has become less valuable, and when its low, a currency has become more valuable.
+
+```{r US Dollar Inflation, echo=FALSE, fig.width = 10, fig.height = 7, message=FALSE}
+library(rvest)
+library(dplyr)
+library(lubridate)
+library(xts)
+inflation_url <- ""http://inflationdata.com/inflation/Inflation_Rate/HistoricalInflation.aspx""
+
+# read in the HTML table with the raw data
+input.df <-
+    read_html(inflation_url) %>%
+    html_node(""table#GridView1"") %>%
+    html_table(header = TRUE, trim = TRUE, fill = TRUE, dec = ""."") 
+
+# convert character percentages to numeric
+inflation.df <- as.data.frame(lapply(input.df, function(x) as.numeric(sub("" %"","""",x))/100))
+inflation.df$Year <- as.integer(inflation.df$Year*100)
+mean.inflation <- mean(inflation.df$Ave.*100,na.rm=TRUE)
+
+plot(inflation.df$Year, inflation.df$Ave.*100, pch=20, type=""b"",
+     xlab=""Year"",ylab=""Annual Avg. Inflation Rate"")
+title(""Historical US Inflation Rates Since 1914"")
+
+abline(h=0, lty=2, col=""black"")
+abline(h=mean.inflation, lty=2, col=""red"")
+text(1950, mean.inflation,labels=paste0(""Overall Average: "", round(mean.inflation, 2), ""%""), pos=3, col=""red"")
+```
+Inflation is compounded annually. If the US Dollar inflated 3% from 1960-1961, then $1 in 1960 is worth $1.03 in 1961. As the graph above shows, the annual inflation rate is about 3%. This means that the amount needed to buy things will, on average, increase by more each year. This also means that company earnings need to match that increase to remain as profitable as they were before.
+"
 783,anakov/Inflation-Growth-Mirror,xBase,
 784,KorayKarakas/Numerically-Exploring-Cosmological-Inflation,Jupyter Notebook,"# Numerically-Exploring-Cosmological-Inflation
 
@@ -15007,7 +16338,11 @@ stargazer(model1, model2, type = ""text"")
 -   Banco Central de Chile (2001), ‘Indicadores económicos y sociales de Chile 1960-2000’
 -   Morande, F. (2001). A Decade of Inflation Targeting in Chile: Developments, Lessons, and Challenges (No. 115). Banco Central de Chile.
 "
+787,toribasso/Inflation-and-Wages,,
 788,amarcerim/bawag-inflation-calculator,CSS,
+789,matthieufisher/2022-Inflation-Forecasting-Project,,"
+"
+790,yg2804/analysis_of_inflation_dynamics,,
 791,slangcake/Inflation_demand_supply_decomposition,R,
 792,sasikirankaye/Global-inflation-rate-analysis,Jupyter Notebook,"# Global-inflation-rate-analysis
 
@@ -15054,6 +16389,8 @@ In order to find a decent model to predict sales we performed an extensive searc
 Random forest algorithm performed well
 "
 793,gobied/LargeFieldInflation,C++,
+794,psylabs/Food-Inflation-Index,,"# Food Inflation Index
+"
 795,kyranjamie/uk-inflation-calculator,Python,"uk-inflation-calculator
 =======================
 "
@@ -15062,6 +16399,10 @@ Python code to analyze data - inflation effect on housing prices
 "
 797,mouryaa/fandango-movie-inflation-analysis,Jupyter Notebook,"# fandango-movie-inflation-analysis
 Walt Hickey from FiveThirtyEight published a popular article where he presented strong evidence which suggest that Fandango's movie rating system was biased and dishonest. Fandango's officials replied that the biased rounding off was caused by a bug in their system rather than being intentional, and they promised to fix the bug as soon as possible.  This project is to sample and analyze popular movies between two years, one before the fix and one after, to determine whether the fix was implemented and there is a difference in ratings.
+"
+798,sidchakravarty79/Growth-Inflation-Model,,"# Growth-Inflation-Model
+GIP model for asset allocation
+Growth, Inflation, Policy (GIP) predictive model is aimed at codifying the investment principles of Bridgewater founder Ray Dalio. The objective of the project is to predict two factors: economic growth and inflation that are central to forecasting financial market returns. The model will track year-over-year, rate of change of various macro factors to better understand the big ""MACRO setup"" and assist with asset allocation.
 "
 799,dbacy/GermanInflationRates,R,"# GermanInflationRates
 German Inflation Rates from yr 2008 - 2017
@@ -15185,12 +16526,14 @@ Technologies
 #### ·       Predicción de inflación acumulada 2021 con ARMA(1,1): 51.5%
 #### ·       Predicción de inflación acumulada 2022 con ARMA(1,1): 54.93%
 "
+805,vivekkanna26/Turkey-Food-Price-Inflation,,
 806,DaviMAC02/BRL-INFLATION-RATE-ANALYSIS,Jupyter Notebook,"Loading...
 "
 807,gitmainaks/Inflation-Forecasting-using-R,R,"# Inflation-Forecasting-using-R
 Forecasting Whole Sale Price Index of the first four months of year 2022 of India, based on the information of monthly WPI from April 2012 to December 2021.
 "
 808,ArhamChoudhury/01_Unexpected_Inflation,R,
+809,JohnFeola/INFLATION-TRACKER2,,# INFLATION-TRACKER2
 810,punnal/Measuring-Latency-inflation,Jupyter Notebook,"# Measuring-Latency-inflation
 - Compile and run rtt.p4(threshold=0) or rtt_tail.p4(threshold=2seconds) on a tofino switch
 - Populate tables for p4 program to support mirroring.
@@ -15228,6 +16571,16 @@ The second part of the analysis tries to forecast (Using time-varying conditiona
 A study to find out the correlation inflation and CPI(Consumer Price Index).We have implemented various machine learning algorithms to find out pattern of rate of inflation over the time.Finally by using Karl Pearsons coefficient we have been successful in finding out top 5 factors which has affected inflation.
 "
 818,dzolotor/inflation_is_theft,Jupyter Notebook,
+819,jessems/WeimarInflationData,,"# Weimar Inflation Data
+
+This data represents the exchange rate between the German Mark and gold during the period of hyperinflation in the Weimer Republic (1918-1923).
+
+Note that the reporting interval becomes smaller as the inflation picks up. Also, there are numerous missing dates in the reporting.
+
+# Source
+
+This data is a digitized version of the data found in *Deutsches Reichsgesetzblatt Teil I (1925) p133-135* made available by the Austrian National Library here: https://alex.onb.ac.at/cgi-content/alex?aid=dra&datum=1925&page=185&size=45
+"
 820,AndreasLM03/Inflation-Data-Scraper,Python,"# Inflation-Data-Scraper
 Inflation data are relevant in times of large monetary payouts to show the risk of demonetization. Furthermore, the gold price correlates with the real interest rate, which is determined by the official bank rate and the inflation rate.
 
@@ -15439,6 +16792,41 @@ plt.savefig(""InflationRate-Year "" + Country + "".png"", bbox_inches='tight')
 "
 821,yash-srivastav/Inflation-Targeting-in-India,Stata,"# Inflation-Targeting-in-India
 Senior Thesis Project on Inflation Targeting in India
+"
+822,ieatcarpets/price-inflation-in-skyblock,,"# price-inflation-in-skyblock
+hypixel skyblock
+
+**INTRODUCTION**
+ 
+ Hypixel skyblock is a gamemode in the popular minecraft server Hypixel. In skyblock, the market is one of the most important thing in the game. The market helps player progress and obtain items by using money. However, in the present, the item prices have been inflated, making items much more expensive.
+ 
+ 
+ 
+(![5cfe76f01f26c new game Skyblock](https://user-images.githubusercontent.com/99769923/154166147-65d73342-859a-42c8-b66d-24d2add2e69c.png)
+
+
+
+ 
+ **HOW IT HAPPENED**
+
+To understand how it all happened, we need to first take a look at the market. there are 3 markets in skyblock: NPC, bazaar, and auction house. Both bazaar and the auction house is a player based market, which means the money circulates between players. However, NPC is not player based. Players can sell items to the npc for money, which is making the game generate money out of thin air. And with more money in the game, players are willing to afford to buy more expensive items, thus increases the price of the items in the player based market.  
+
+
+![5e66ec4be8f68 sb 0 7 7](https://user-images.githubusercontent.com/99769923/154166364-71686a07-f13d-4745-a1c8-db145ee4ff28.png)
+
+
+
+ Now it all started when the Crystal Hollows update dropped. The new update introduced many things, and one of the thing is gemstones. Players can mine gemstone and sell them to the NPCs for money, and they are still very profitable even now. Because of the update, more money is being generated from the npcs than before update due to the amount of people selling gemstones to the npc. With that, there are alot more money in the game, so the price of items increased. But you ask, if there are more money in the game and the price increased, doesn't that mean that the price is still the same but just have a bigger scale factor? well, yes but no. It might be true for players that are rich and have a stable money making method. But for newer players the increase in price is not very good. The newer players does not have a good money making method, furthermore, they dont have much money tp begin with. Most money making method requires some amount of money to buy the needed items for it, so therefore new players have a hard time getting money.
+ 
+ 
+ 
+ ![image (10)](https://user-images.githubusercontent.com/99769923/154166405-214e0965-5aa5-460e-980c-ece050be0ef6.jpg)
+
+
+
+
+
+
 "
 823,8W9aG/inflation-browser-extension,JavaScript,"# inflation-browser-extension
 
@@ -15799,6 +17187,7 @@ Technologies
 * Amazon DynamoDB
 
 "
+831,mklewandowski/inflation-stress-reduction,,# inflation-stress-reduction
 832,debanil-hutech/Inflation-Next-App,JavaScript,"This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -15833,6 +17222,33 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+"
+833,mateuszschab/Global-inflation-and-investment,,"# Global inflation and investment
+
+The excel file contains historical data on inflation in countries around the world. It allows you to select a country from a list and track the data since 1960. Some countries and time periods may be missing.
+Below is the appearance of the control panel:
+
+![Dashboard](dashboard.png)
+
+Inflation as measured by the consumer price index reflects the annual percentage change in the cost to the average consumer of acquiring a basket of goods and services that may be fixed or changed at specified intervals, such as annually. The Laspeyres formula is generally used.
+
+Excel also determines the convergence to inflation in Poland. It provides information about the return on investment of Polish zlotys in the currency of the selected country since 1995. The data is approximate because it does not take into account the difference in buying and selling currencies, as well as taxes due. 
+
+The excel function also calculates correlations (i.e., the dependence of the data on each other) with respect to currency, and inflation.
+
+Data sources (accessed August 2022):
+
+Inflation data:
+https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG
+
+Exchange rates in 1984 - 2022
+https://www.nbp.pl/homen.aspx?c=/ascx/ArchAen.ascx
+
+CPI in Poland 1995 - 2021:
+https://www.inflationtool.com/polish-zloty?amount=100&year1=2001&year2=2002&frequency=yearly
+
+Historical prices of silver, gold and platinum:
+https://stooq.pl/q/d/?s=xptpln&c=0&d1=19950101&d2=20211231&i=y
 "
 834,lexieheinle/inflation-vs-unemployment,CSS,"# For the Love of the Money
 [![Code Issues](https://www.quantifiedcode.com/api/v1/project/4687f2cd8c0d4e43afb40182b9eb9c81/badge.svg)](https://www.quantifiedcode.com/app/project/4687f2cd8c0d4e43afb40182b9eb9c81)
@@ -15873,8 +17289,15 @@ EDA on the CPI in US from 1913 to 2021.
 we will visualize the inflation on a map. This will be done by getting the inflation data directly from World Bank using the Pandas-datareader. 
 This data will be joined with data from GeoPandas, which provides a world map we can use to create a Choropleth map.
 "
+840,OmegaMarkXII/Project-DKI-Inflation,,
+841,8W9aG/inflation-smart-contract,,"# inflation-smart-contract
+A generator for Chainlink Smart Contracts for the inflation blockchain.
+"
 842,LUNDR/inflation_forecasts_with_tf,Jupyter Notebook,
 843,millerngit/RateOfInflation,C++,
 844,iamdingkai/what-s-driving-inflation,Jupyter Notebook,
+845,jrbsn/Inflation-Deep-Learning,,"# Inflation-Deep-Learning
+Predicts opening force using deep neural network created from scratch using only NumPy
+"
 846,fscheler/Inflation_Tracker_World,HTML,
 847,jacobrosen1997/ECON323-Inflation,Jupyter Notebook,
