@@ -44,7 +44,7 @@ Libraries used are pandas, numpy, nlt, sklearn, wordcloud, matplotlib, and seabo
 
 # Project Goals
 
-Determine the language used in the code of a online github repo based on the contents of the readme.md
+Under inflation topic, determine the programming language used in the code of online github repos based on the contents of the README.md.
 
 # Project Desciption
 
@@ -52,9 +52,10 @@ Inflation is an ongoing concern for many. We looked at github to see there are o
 
 
 # Initial Testing and Hypothesis
-1. The word choice in the Readme will vary by program language.
-2. The Readme will vary in length based on program language.
-3. What are the most common words in Python, JavaScript and R besides the key word inflation?
+1. What are the most common words in all READMEs related to the inflation topic?
+2. Does the length of the README vary by programming language?
+3. What are the most common words in python, javascript and R besides the keyword inflation?
+4. Are there any words that uniquely identify a programming language?
 
 # Report Findings 
 
