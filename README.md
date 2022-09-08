@@ -80,10 +80,10 @@ Inflation is an ongoing concern for many. We looked at github to see there are o
 'Other' with an accuracy on train of 42.12%
 
 #### Best Model: 
-Random Forest TD-IDF with max depth of 4 and an accuracty on validate of 59.53 
+Random Forest TD-IDF with max depth of 7 and an accuracty on validate of 59.53 
 
 #### Test:
-Random Forest TD-IDF with max depth of 4 and an accuracty on test of 51.43%
+Random Forest TD-IDF with max depth of 7 and an accuracty on test of 51.43%
 
 
 
