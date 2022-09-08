@@ -46,7 +46,7 @@ Libraries used are pandas, numpy, nlt, sklearn, wordcloud, matplotlib, and seabo
 
 # Project Goals
 
-Under inflation topic, determine the programming language used in the code of online github repos based on the contents of the README.md.
+Determine the programming language used in the code of online github repos based on the contents of the README.md. We decided to focus on repos dealing with inflation.
 
 # Project Desciption
 
@@ -80,7 +80,7 @@ Inflation is an ongoing concern for many. We looked at github to see there are o
 'Other' with an accuracy on train of 42.12%
 
 #### Best Model: 
-Random Forest TD-IDF with max depth of 7 and an accuracty on validate of 59.53 
+Random Forest TD-IDF with max depth of 7 and an accuracty on validate of 59.52% 
 
 #### Test:
 Random Forest TD-IDF with max depth of 7 and an accuracty on test of 51.43%
