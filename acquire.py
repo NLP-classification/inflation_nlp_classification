@@ -16,7 +16,7 @@ from env import github_token, github_username
 # get repo name part will be in acauire.ipynb
 # repo_name.csv file contain the repo_list
 
-headers = {"Authorization": f"token {github_token}", "User-Agent": github_username}
+headers = {"Authorization": f"token {github_token}", "User-Agent": github_username} #setup token as described in README.md
 
 if headers["Authorization"] == "token " or headers["User-Agent"] == "":
     raise Exception(
@@ -28,12 +28,12 @@ REPOS = repo_list
 def github_api_request(url: str) -> Union[List, Dict]:
     time.sleep(0.25)
     print(url)
-    response = requests.get(url, headers=headers, timeout=60)
-    response_data = response.json()
-    if int(response.headers['X-RateLimit-Remaining']) < 10:
+    response = requests.get(url, headers=headers, timeout=60) #get url. Use headers as specified above since website won't let you in without your token and username
+    response_data = response.json() #convert to json format
+    if int(response.headers['X-RateLimit-Remaining']) < 10: #once you have less than 10 repos before reaching the scraping limit, sleep for one minute to reset scraping limit
         print('Rate-limit exceeded. Slowing down.')
         time.sleep(60)
-    if response.status_code != 200:
+    if response.status_code != 200: #if you do not get '200' as a response code, flag and show error
         raise Exception(
             f"Error response from github api! status code: {response.status_code}, "
             f"response: {json.dumps(response_data)}"
@@ -41,8 +41,8 @@ def github_api_request(url: str) -> Union[List, Dict]:
     return response_data
 
 def get_repo_language(repo: str) -> str:
-    url = f"https://api.github.com/repos/{repo}"
-    repo_info = github_api_request(url)
+    url = f"https://api.github.com/repos/{repo}" #plug each repo from the list into url
+    repo_info = github_api_request(url) #get repo info
     if type(repo_info) is dict:
         repo_info = cast(Dict, repo_info)
         return repo_info.get("language", None)
@@ -52,9 +52,9 @@ def get_repo_language(repo: str) -> str:
     
 def get_repo_contents(repo: str) -> List[Dict[str, str]]:
     url = f"https://api.github.com/repos/{repo}/contents/"
-    contents = github_api_request(url)
+    contents = github_api_request(url)#get contents from repo
     if type(contents) is list:
-        contents = cast(List, contents)
+        contents = cast(List, contents) #if content is in this format indicates which part of the info is the contents
         return contents
     raise Exception(
         f"Expecting a list response from {url}, instead got {json.dumps(contents)}"
@@ -90,7 +90,7 @@ def scrape_github_data() -> List[Dict[str, str]]:
     """
     Loop through all of the repos and process them. Returns the processed data.
     """
-    f = IntProgress(min=0, max=len(REPOS), description='Downloading Data')
+    f = IntProgress(min=0, max=len(REPOS), description='Downloading Data') #sets loading bar so you can monitor progress
     display(f)
     output = []
     for i, repo in enumerate(REPOS):
@@ -98,7 +98,7 @@ def scrape_github_data() -> List[Dict[str, str]]:
         output.append(process_repo(repo))
     return output
 
-def get_data(refresh=False):
+def get_data(refresh=False): # get data if you have it. Download it if you don't.
     filename = './data.csv'
     if refresh or not os.path.isfile(filename):
         data = scrape_github_data()
