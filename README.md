@@ -32,7 +32,12 @@ You will need a Github personal access token.
 2. Save it in your env.py file under the variable `github_token`
    Add your github username to your env.py file under the variable `github_username`
 
-Clone the repo
+Clone the repo to get final_notebook, acquire.py, prepare.py
+
+    Run the acquire.py and prepare.py notebooks. This will acquire, prepare, and save a .csv
+    OR
+    Use the inflation_readme.csv already saved in the repo.
+
 
 Libraries used are pandas, numpy, nlt, sklearn, wordcloud, matplotlib, and seaborn..
 
@@ -69,24 +74,37 @@ Inflation is an ongoing concern for many. We looked at github to see there are o
 
 ### Modeling
 #### Baseline: 
-'Other' with an accuracy on validate of 42.12%
+'Other' with an accuracy on train of 42.12%
 
 #### Best Model: 
-Bag of Words Random Forest with a max depth of 11 and an accuracy on validate of 72.95% 
+Random Forest TD-IDF with max depth of 4 and an accuracty on validate of 59.53 
 
 #### Test:
-Bag of Words Random Forest with a max depth of 11 and an accuracy of %
+Random Forest TD-IDF with max depth of 4 and an accuracty on test of 51.43%
 
 
 
 #  Recommendations and Future Work
 
-- combine model with models that predict changes in temperature and rainfall to get a more accurate predictions
-
-- regulate water usage to minimize use of limited water resources
-
-- invest in salt-water conversion to fresh water
+- adjust stop words to remove the words 'data' and 'inflation' to try and get more specific and unique wording for each language
+- try different classification models such as KNN
+- try unsupervised learning to see if there are any new insights into the different groupings of data
 
 
-# Detailed Project Plan-do we need this?
+
+# Detailed Project Plan
+
+- Friday
+    - finish acquiring data
+    
+- Tuesday
+    - prepare and explore data
+    
+Wednesday
+    - modeling, readme, slides
+
+Thursday
+    - add comments and practice presentation
+    - turn in by 14:30
+
 
