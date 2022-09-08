@@ -39,7 +39,7 @@ Libraries used are pandas, numpy, nlt, sklearn, wordcloud, matplotlib, and seabo
 
 # Project Goals
 
-Determine the language used in the code of a online github repo based on the contents of the readme.md
+Under inflation topic, determine the programming language used in the code of online github repos based on the contents of the README.md.
 
 # Project Desciption
 
