@@ -37,9 +37,11 @@ Clone the repo to get final_notebook, acquire.py, prepare.py
     Run the acquire.py and prepare.py notebooks. This will acquire, prepare, and save a .csv
     OR
     Use the inflation_readme.csv already saved in the repo.
+    
+We did have to manually remove repos that had been deleted.
 
 
-Libraries used are pandas, numpy, nlt, sklearn, wordcloud, matplotlib, and seaborn..
+Libraries used are pandas, numpy, nlt, sklearn, wordcloud, matplotlib, and seaborn.
 
 
 # Project Goals
